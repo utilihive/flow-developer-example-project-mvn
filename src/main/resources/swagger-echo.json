@@ -1,0 +1,191 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Echo API",
+    "description": "Echo api for testing",
+    "version": "v1"
+  },
+  "paths": {
+    "/openapi.json": {
+      "get": {
+        "tags": [
+          "OpenAPI"
+        ],
+        "summary": "Get API DOC for this API.",
+        "description": "Get API DOC for this API on OpenAPI 3.0 (Swagger 2.0) JSON format.",
+        "operationId": "apiDoc",
+        "responses": {
+          "400": {
+            "description": "Bad Request - something was wrong with the request, typically a validation error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SimpleMessageDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - authentication was not provided or was not accepted.",
+            "headers": {
+              "WWW-Authenticate": {
+                "style": "simple",
+                "schema": {
+                  "description": "The authentication method that should be used to gain access to the resource."
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SimpleMessageDto"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - the requested action could not be authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SimpleMessageDto"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict - the system can not process the request in its current state.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SimpleMessageDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - an unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SimpleMessageDto"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/echo": {
+      "post": {
+        "operationId": "sayHi",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ToBeEchoedDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SimpleMessageDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - something was wrong with the request, typically a validation error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SimpleMessageDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - authentication was not provided or was not accepted.",
+            "headers": {
+              "WWW-Authenticate": {
+                "style": "simple",
+                "schema": {
+                  "description": "The authentication method that should be used to gain access to the resource."
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SimpleMessageDto"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - the requested action could not be authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SimpleMessageDto"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict - the system can not process the request in its current state.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SimpleMessageDto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - an unexpected error occurred.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SimpleMessageDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "SimpleMessageDto": {
+        "required": [
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          }
+        },
+        "description": "A wrapper for a simple message"
+      },
+      "ToBeEchoedDto": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
