@@ -3,10 +3,10 @@ package com.example.flows
 import com.example.flows.ExampleTestFlow.exampleOpenApiDoc
 import com.example.flows.ExampleTestFlow.exampleResourceKey
 import com.example.flows.ExampleTestFlow.exampleSpec
+import com.greenbird.utilihive.integration.flowdeveloper.sdk.flow.FlowEditor.forTestContext
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.resources.Resource
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.server.UtilihiveRestClientFactory
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.server.UtilihiveRestClientFactory.basicAuth
-import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.FlowEditor.forTestContext
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.FlowTestManager
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.addFlowTestConfig
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.entities.SimpleMessage
