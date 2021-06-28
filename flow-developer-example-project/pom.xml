@@ -17,7 +17,7 @@
 
         <!-- Dependency versions -->
         <assertj-version>3.19.0</assertj-version>
-        <flow-developer-sdk-version>2.4.0</flow-developer-sdk-version>
+        <flow-developer-sdk-version>2.5.0</flow-developer-sdk-version>
         <javax.ws.rs-api-version>2.1</javax.ws.rs-api-version>
         <junit5-version>5.7.1</junit5-version>
         <slf4j-version>1.7.30</slf4j-version>
@@ -172,6 +172,24 @@
                     </execution>
                 </executions>
 
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <!--
+                        Activate the use of TCP to transmit events to the plugin to avoid getting
+                        "Corrupted STDOUT by directly writing to native stream in forked JVM" errors when
+                        running concurrent tests.
+                    -->
+                    <forkNode implementation="org.apache.maven.plugin.surefire.extensions.SurefireForkNodeFactory"/>
+                    <!--
+                        Disable forking so we can see the log output from the test immediately, instead of at the
+                        end of each test execution.
+                     -->
+                    <forkCount>0</forkCount>
+                </configuration>
             </plugin>
 
         </plugins>
