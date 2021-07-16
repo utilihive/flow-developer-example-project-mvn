@@ -1,4 +1,4 @@
-package com.example.common
+package flowexamples.common
 
 object FlowData {
     const val OWNER_ID: String = "exampleOwner"

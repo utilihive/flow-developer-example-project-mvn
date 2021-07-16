@@ -1,11 +1,11 @@
-package com.example.e02
+package flowexamples.e02
 
-import com.example.common.FlowData.OWNER_ID
-import com.example.common.FlowData.fromClasspath
 import com.greenbird.metercloud.integration.flow.spec.FlowExchangePattern.OneWay
 import com.greenbird.metercloud.integration.flow.spec.FlowExchangePattern.RequestResponse
 import com.greenbird.metercloud.integration.flow.spec.dsl.flowConfig
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.resources.ResourceVersionKey.Companion.newResourceVersionKey
+import flowexamples.common.FlowData.OWNER_ID
+import flowexamples.common.FlowData.fromClasspath
 
 object E02DistributionFlow {
     private const val FLOW_ID_API = "distribution-api"

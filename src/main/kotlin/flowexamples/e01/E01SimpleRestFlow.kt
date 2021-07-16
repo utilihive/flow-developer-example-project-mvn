@@ -1,10 +1,10 @@
-package com.example.e01
+package flowexamples.e01
 
-import com.example.common.FlowData.OWNER_ID
-import com.example.common.FlowData.fromClasspath
 import com.greenbird.metercloud.integration.flow.spec.FlowExchangePattern.RequestResponse
 import com.greenbird.metercloud.integration.flow.spec.dsl.flowConfig
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.resources.ResourceVersionKey.Companion.newResourceVersionKey
+import flowexamples.common.FlowData.OWNER_ID
+import flowexamples.common.FlowData.fromClasspath
 
 object E01SimpleRestFlow {
     val simpleRestOpenApiDefinition = fromClasspath("/echo-open-api-v1.json")

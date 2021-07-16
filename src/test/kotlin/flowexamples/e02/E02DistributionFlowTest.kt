@@ -1,10 +1,5 @@
-package com.example.e02
+package flowexamples.e02
 
-import com.example.e02.E02DistributionFlow.distributionApiSpec
-import com.example.e02.E02DistributionFlow.distributionOpenApiDefinition
-import com.example.e02.E02DistributionFlow.distributionRestResourceKey
-import com.example.e02.E02DistributionFlow.distributionTarget1Spec
-import com.example.e02.E02DistributionFlow.distributionTarget2Spec
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.log.LoggerNames
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.resources.Resource
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.server.UtilihiveRestClientFactory.basicAuth
@@ -16,6 +11,11 @@ import com.greenbird.utilihive.integration.test.concurrent.core.ConcurrentTestCo
 import com.greenbird.utilihive.integration.test.concurrent.core.ConcurrentTestManager
 import com.greenbird.utilihive.integration.test.concurrent.core.junit5.ConcurrentTestBase
 import com.greenbird.utilihive.integration.test.concurrent.core.log.LogQuery.Companion.logQuery
+import flowexamples.e02.E02DistributionFlow.distributionApiSpec
+import flowexamples.e02.E02DistributionFlow.distributionOpenApiDefinition
+import flowexamples.e02.E02DistributionFlow.distributionRestResourceKey
+import flowexamples.e02.E02DistributionFlow.distributionTarget1Spec
+import flowexamples.e02.E02DistributionFlow.distributionTarget2Spec
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import javax.ws.rs.client.Entity.json
@@ -24,7 +24,7 @@ class E02DistributionFlowTest : ConcurrentTestBase() {
     private val logAsserter = ConcurrentTestManager.testLogAssertions
 
     @Test
-    fun `GIVEN deployed distribution flows WHEN sending a value THEN the message is distributed to the two target flows`(
+    fun `E02 GIVEN deployed distribution flows WHEN sending a value THEN the message is distributed to the two target flows`(
         ctx: ConcurrentTestContext
     ) {
         val openApiResource = Resource(key = distributionRestResourceKey, content = distributionOpenApiDefinition)
