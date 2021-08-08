@@ -12,13 +12,11 @@ import flowexamples.e05.E05SimpleScriptFlow.simpleScriptOpenApiDefinition
 import flowexamples.e05.E05SimpleScriptFlow.simpleScriptResourceKey
 import flowexamples.e05.E05SimpleScriptFlow.simpleScriptSpec
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import javax.ws.rs.client.Entity.json
 
 class E05SimpleScriptFlowTest : ConcurrentTestBase() {
 
-    @Disabled("Until test server deploy time issues are fixed")
     @Test
     fun `E05 GIVEN deployed echo script flow WHEN sending a value THEN the value is echoed back`(ctx: ConcurrentTestContext) {
         val openApiResource = Resource(key = simpleScriptResourceKey, content = simpleScriptOpenApiDefinition)

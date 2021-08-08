@@ -17,14 +17,12 @@ import flowexamples.e02.E02DistributionFlow.distributionRestResourceKey
 import flowexamples.e02.E02DistributionFlow.distributionTarget1Spec
 import flowexamples.e02.E02DistributionFlow.distributionTarget2Spec
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import javax.ws.rs.client.Entity.json
 
 class E02DistributionFlowTest : ConcurrentTestBase() {
     private val logAsserter = ConcurrentTestManager.testLogAssertions
 
-    @Disabled("Until test server deploy time issues are fixed")
     @Test
     fun `E02 GIVEN deployed distribution flows WHEN sending a value THEN the message is distributed to the two target flows`(
         ctx: ConcurrentTestContext

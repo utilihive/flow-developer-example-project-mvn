@@ -20,14 +20,12 @@ import flowexamples.e03.E03HttpRequestFlow.httpRequestOpenApiDefinition
 import flowexamples.e03.E03HttpRequestFlow.httpRequestResourceKey
 import flowexamples.e03.E03HttpRequestFlow.httpRequestSpec
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import java.net.URL
 import javax.ws.rs.client.Entity.json
 
 class E03HttpRequestFlowTest : ConcurrentTestBase() {
 
-    @Disabled("Until test server deploy time issues are fixed")
     @Test
     fun `E03-1 GIVEN backend stub flow WHEN sending a value THEN the request is forwarded to the stub flow and echoed back`(
         ctx: ConcurrentTestContext
@@ -61,7 +59,6 @@ class E03HttpRequestFlowTest : ConcurrentTestBase() {
         }
     }
 
-    @Disabled("Until test server deploy time issues are fixed")
     @Test
     fun `E03-2 GIVEN wiremock backend stub WHEN sending a value THEN the request is forwarded to the stub flow and echoed back`(
         ctx: ConcurrentTestContext
