@@ -7,11 +7,11 @@ import com.greenbird.utilihive.integration.flowdeveloper.sdk.resources.Resource
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.server.UtilihiveRestClientFactory.basicAuth
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.FlowTestManager.Companion.flowTest
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.addFlowTestConfig
+import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.backends.wiremock.WireMockTestBackend.withWireMock
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.entities.SimpleMessage
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.entities.SimpleValue
 import com.greenbird.utilihive.integration.test.concurrent.core.ConcurrentTestContext
 import com.greenbird.utilihive.integration.test.concurrent.core.junit5.ConcurrentTestBase
-import flowexamples.common.wiremock.WireMockTestManager.withWireMock
 import flowexamples.e03.E03HttpRequestFlow.httpRequestOpenApiDefinition
 import flowexamples.e03.E03HttpRequestFlow.httpRequestResourceKey
 import flowexamples.e03.E03HttpRequestFlow.httpRequestSpec
