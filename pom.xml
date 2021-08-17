@@ -34,6 +34,19 @@
     <name>Utilihive Flow Developer Example Project</name>
     <description>Example Project for Utilihive Flow Developers</description>
 
+    <!--
+        The flow-developer-sdk dependency is fetched from this repository.
+        The credentials for the greenbird repository are only available for licensed users.
+        They must be added to the servers section of your Maven settings.xml file.
+        See README.adoc for more details.
+    -->
+    <repositories>
+        <repository>
+            <id>utilihive-sdk</id>
+            <url>https://nexus.greenbird.com/content/repositories/utilihive-sdk/</url>
+        </repository>
+    </repositories>
+
     <dependencyManagement>
         <dependencies>
             <!-- JUnit 5 -->
