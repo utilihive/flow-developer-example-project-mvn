@@ -1,3 +1,43 @@
-= Utilihive flow developer example project
+= Utilihive Flow Developer Example Project
+:toc:
+:sectnums:
 
-TODO
+== Overview
+
+This example codebase serves as an introduction to the Utilihive Flow Developer SDK while demonstrating common use cases and best practices.
+Developers new to writing integration flows should clone this repository and refer to the official https://docs.utilihive.io/utilihive-integration/development/[Utilihive documentation] for additional help.
+
+== Example Flows
+
+The example project includes a series of working sample flows that demonstrate features like creating REST endpoints, handing payloads off to other flows, and mapping JSON compliant data.
+These flow specifications can be found in the link:src/main/kotlin/flowexamples[main/kotlin/flowexamples] directory and are numbered `e01`, `e02`, etc.
+
+Each sample flow also has a corresponding unit test in the link:src/test/kotlin/flowexamples[test/kotlin/flowexamples] directory.
+It is important to test flows during the development process, which is why the SDK includes a robust testing framework and local test server to deploy flows on.
+
+For a more detailed walkthrough of the example flows and test features, check out the https://docs.utilihive.io/utilihive-integration/development/getting-started/[Getting Started section] of the Utilihive documentation.
+
+== Installation
+
+The Utilihive SDK is a Maven dependency of the example project and requires https://www.oracle.com/java/technologies/javase-jdk11-downloads.html[Java 11].
+You also need to add the software access credentials from your Utilihive license to the Maven settings to access the SDK.
+
+Create or edit the file located at `$HOME/.m2/settings.xml` on your computer and add the following `<server>` element:
+
+[source,xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+  <servers>
+    <server>
+      <id>utilihive-sdk</id>
+      <username>YOUR USERNAME</username>
+      <password>YOUR PASSWORD</password>
+    </server>
+  </servers>
+</settings>
+----
+
+The flows and tests are written in Kotlin and need the https://www.jetbrains.com/idea/download/[IntelliJ IDEA] installed to run them.
+
+For more information on setting up your workspace, check out the https://docs.utilihive.io/utilihive-integration/development/installation/[Installation and Requirements section] of the Utilihive documentation.
