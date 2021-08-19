@@ -9,6 +9,7 @@ import flowexamples.common.FlowData.fromClasspath
 import java.net.URL
 
 object E03HttpRequestFlow {
+    const val BACKEND_AUTHENTICATION_KEY = "backendAuth"
     val httpRequestOpenApiDefinition = fromClasspath("/echo-open-api-v1.json")
 
     val httpRequestResourceKey = newResourceVersionKey {
@@ -38,9 +39,8 @@ object E03HttpRequestFlow {
             address = URL("https://OVERRIDE_ME/echo")
 
             // In live deployment the backend credentials will be looked up externally.
-            // For the tests they are defined in src/test/resources/authConfig.properties.
-            // The credentials in authConfig.properties will be automatically deployed to the test server.
-            authenticationConfigKey = "backend"
+            // For the tests they are defined on the test config and deployed to the test server by the sdk.
+            authenticationConfigKey = BACKEND_AUTHENTICATION_KEY
         }
 
     }

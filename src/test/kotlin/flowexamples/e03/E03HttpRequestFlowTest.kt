@@ -12,6 +12,7 @@ import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.entities.Si
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.entities.SimpleValue
 import com.greenbird.utilihive.integration.test.concurrent.core.ConcurrentTestContext
 import com.greenbird.utilihive.integration.test.concurrent.core.junit5.ConcurrentTestBase
+import flowexamples.e03.E03HttpRequestFlow.BACKEND_AUTHENTICATION_KEY
 import flowexamples.e03.E03HttpRequestFlow.httpRequestOpenApiDefinition
 import flowexamples.e03.E03HttpRequestFlow.httpRequestResourceKey
 import flowexamples.e03.E03HttpRequestFlow.httpRequestSpec
@@ -23,33 +24,19 @@ import javax.ws.rs.client.Entity.json
 class E03HttpRequestFlowTest : ConcurrentTestBase() {
 
     @Test
-    fun `E03-2_1 GIVEN wiremock backend stub WHEN using classpath-provided auth and sending a value THEN the request is forwarded to the stub flow and echoed back`(
+    fun `E03 GIVEN wiremock backend stub WHEN sending a value THEN an authenticated request is forwarded to the stub flow and echoed back`(
         ctx: ConcurrentTestContext
     ) {
-        verifyRestRequest(ctx)
-    }
-
-    @Test
-    fun `E03-2_2 GIVEN wiremock backend stub WHEN using test-provided auth and sending a value THEN the request is forwarded to the stub flow and echoed back`(
-        ctx: ConcurrentTestContext
-    ) {
-        verifyRestRequest(ctx, useTestProvidedAuth = true)
-    }
-
-    private fun verifyRestRequest(ctx: ConcurrentTestContext, useTestProvidedAuth: Boolean = false) {
         val inputValue = "testValue"
-        val username =
-            if (useTestProvidedAuth) "testProvidedBackendUser" else "classpathProvidedBackendUser"
-        val password =
-            if (useTestProvidedAuth) "testProvidedBackendPwd" else "classpathProvidedBackendPwd"
+        val user = "backendUser"
+        val pwd = "backendPwd"
 
         withWireMock { wireMockServer ->
-            // The basic auth credentials will be automatically
-            // loaded from the authConfig.properties classpath resource.
             wireMockServer.stubFor(
                 post(urlPathEqualTo("/echo"))
                     .withRequestBody(equalToJson(""" { "value": "$inputValue" } """))
-                    .withBasicAuth(username, password)
+                    // The credentials sent by the restRequest processor are defined for the test by the authConfig statement below.
+                    .withBasicAuth(user, pwd)
                     .willReturn(okJson(""" { "message": "$inputValue" } """))
             )
 
@@ -57,26 +44,16 @@ class E03HttpRequestFlowTest : ConcurrentTestBase() {
             // We adjust the rest request target address to point to the backend stub flow
             val frontendFlow = httpRequestSpec.map<RestRequestConfig> { restRequestConfig ->
                 val backendAddress = URL("http://localhost:${wireMockServer.port()}/echo")
-
-                if (useTestProvidedAuth) {
-                    restRequestConfig.copy(
-                        address = backendAddress,
-                        authenticationConfigKey = "backendWithTestProvidedAuth"
-                    )
-                } else {
-                    restRequestConfig.copy(address = backendAddress)
-                }
+                restRequestConfig.copy(address = backendAddress)
             }
 
             ctx.addFlowTestConfig {
-                if (useTestProvidedAuth) {
-                    authConfig(
-                        "backendWithTestProvidedAuth", mapOf(
-                            "userName" to "testProvidedBackendUser",
-                            "pwd" to "testProvidedBackendPwd"
-                        )
+                authConfig(
+                    BACKEND_AUTHENTICATION_KEY, mapOf(
+                        "userName" to user,
+                        "pwd" to pwd
                     )
-                }
+                )
 
                 resource(frontendApiResource)
                 flow(frontendFlow)
@@ -92,4 +69,5 @@ class E03HttpRequestFlowTest : ConcurrentTestBase() {
             }
         }
     }
+
 }

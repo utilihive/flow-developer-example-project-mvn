@@ -8,9 +8,7 @@ import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.addFlowTest
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.entities.SimpleMessage
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.entities.SimpleValue
 import com.greenbird.utilihive.integration.test.concurrent.core.ConcurrentTestContext
-import com.greenbird.utilihive.integration.test.concurrent.core.ConcurrentTestManager
 import com.greenbird.utilihive.integration.test.concurrent.core.junit5.ConcurrentTestBase
-import com.greenbird.utilihive.integration.test.concurrent.core.log.LogQuery.Companion.logQuery
 import flowexamples.e02.E02DistributionFlow.distributionApiSpec
 import flowexamples.e02.E02DistributionFlow.distributionOpenApiDefinition
 import flowexamples.e02.E02DistributionFlow.distributionRestResourceKey
@@ -21,7 +19,6 @@ import org.junit.jupiter.api.Test
 import javax.ws.rs.client.Entity.json
 
 class E02DistributionFlowTest : ConcurrentTestBase() {
-    private val logAsserter = ConcurrentTestManager.testLogAssertions
 
     @Test
     fun `E02 GIVEN deployed distribution flows WHEN sending a value THEN the message is distributed to the two target flows`(
@@ -44,20 +41,18 @@ class E02DistributionFlowTest : ConcurrentTestBase() {
 
             assertThat(responseMessage.message).isEqualTo("Distributed")
 
-            logAsserter.awaitEvent(
-                logQuery {
-                    logger = LoggerNames.TEST_PROCESSOR
-                    flowId = flowId(distributionTarget1Spec)
-                    messagePhrase("Processing")
-                }
-            )
-            logAsserter.awaitEvent(
-                logQuery {
-                    logger = LoggerNames.TEST_PROCESSOR
-                    flowId = flowId(distributionTarget2Spec)
-                    messagePhrase("Processing")
-                }
-            )
+            logAsserter.awaitEvent {
+                logger = LoggerNames.TEST_PROCESSOR
+                flowId = distributionTarget1Spec.id
+                messagePhrase("Processing")
+            }
+
+            logAsserter.awaitEvent {
+                logger = LoggerNames.TEST_PROCESSOR
+                flowId = distributionTarget2Spec.id
+                messagePhrase("Processing")
+            }
+
         }
     }
 
