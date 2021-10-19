@@ -4,7 +4,7 @@ import com.github.tomakehurst.wiremock.client.WireMock.*
 import com.greenbird.metercloud.integration.flow.spec.dsl.RestRequestConfig
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.flow.FlowEditor.map
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.resources.Resource
-import com.greenbird.utilihive.integration.flowdeveloper.sdk.server.UtilihiveRestClientFactory.basicAuth
+import com.greenbird.utilihive.integration.flowdeveloper.sdk.utils.rest.basicAuth
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.FlowTestManager.Companion.flowTest
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.addFlowTestConfig
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.backends.wiremock.WireMockTestBackend.withWireMock

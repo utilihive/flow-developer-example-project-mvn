@@ -1,11 +1,11 @@
 package flowexamples.e01
 
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.resources.Resource
-import com.greenbird.utilihive.integration.flowdeveloper.sdk.server.UtilihiveRestClientFactory.basicAuth
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.FlowTestManager.Companion.flowTest
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.addFlowTestConfig
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.entities.SimpleMessage
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.entities.SimpleValue
+import com.greenbird.utilihive.integration.flowdeveloper.sdk.utils.rest.basicAuth
 import com.greenbird.utilihive.integration.test.concurrent.core.ConcurrentTestContext
 import com.greenbird.utilihive.integration.test.concurrent.core.junit5.ConcurrentTestBase
 import flowexamples.e01.E01SimpleRestFlow.simpleRestOpenApiDefinition

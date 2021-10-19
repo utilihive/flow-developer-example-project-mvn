@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="http://api.bioinfo.no/stylesheets/WSDLDocumentation.xslt"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.bccs.uib.no/EchoService.wsdl"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             name="EchoService" targetNamespace="http://www.bccs.uib.no/EchoService.wsdl">
+    <types>
+        <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.bccs.uib.no/EchoService.wsdl"
+                    xmlns:tns="http://www.bccs.uib.no/EchoService.wsdl" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:element name="SayHi">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="Hi" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="SayHiResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="HiResponse" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </types>
+    <message name="SayHiRequestMsg">
+        <part name="parameters" element="tns:SayHi"/>
+    </message>
+    <message name="SayHiResponseMsg">
+        <part name="parameters" element="tns:SayHiResponse"/>
+    </message>
+    <portType name="EchoService">
+        <operation name="SayHi">
+            <documentation>Just a simple echo operation that returns the same string that is given to it.
+            </documentation>
+            <input message="tns:SayHiRequestMsg"/>
+            <output message="tns:SayHiResponseMsg"/>
+        </operation>
+    </portType>
+    <binding name="EchoServiceBinding" type="tns:EchoService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="SayHi">
+            <soap:operation soapAction="http://www.bccs.uib.no/EchoService.wsdl/SayHi"/>
+            <input>
+                <soap:body use="literal" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body use="literal" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="EchoService">
+        <documentation>This WSDL file describes a simple Echo Service that echoes a string sent to it. This service is
+            intended primarily for testing purposes.
+        </documentation>
+        <port name="EchoServiceMPC" binding="tns:EchoServiceBinding">
+            <soap:address location="http://api.bioinfo.no/mpc2/services/EchoService"/>
+        </port>
+        <port name="EchoServiceLocal" binding="tns:EchoServiceBinding">
+            <soap:address location="http://localhost:8080/axis2/services/EchoService"/>
+        </port>
+        <port name="EchoService" binding="tns:EchoServiceBinding">
+            <soap:address location="http://api.bioinfo.no/services/EchoService"/>
+        </port>
+    </service>
+</definitions>
