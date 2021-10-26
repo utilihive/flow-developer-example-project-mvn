@@ -6,12 +6,12 @@ import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.FlowTestMan
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.addFlowTestConfig
 import com.greenbird.utilihive.integration.test.concurrent.core.ConcurrentTestContext
 import com.greenbird.utilihive.integration.test.concurrent.core.junit5.ConcurrentTestBase
-import flowexamples.e06.E06SoapFlows.echoNamespace
-import flowexamples.e06.E06SoapFlows.soapBackendDefinition
-import flowexamples.e06.E06SoapFlows.soapBackendResourceKey
-import flowexamples.e06.E06SoapFlows.soapFrontendDefinition
-import flowexamples.e06.E06SoapFlows.soapFrontendFlowSpec
-import flowexamples.e06.E06SoapFlows.soapFrontendResourceKey
+import flowexamples.e06.E06SoapFlow.echoNamespace
+import flowexamples.e06.E06SoapFlow.soapBackendDefinition
+import flowexamples.e06.E06SoapFlow.soapBackendResourceKey
+import flowexamples.e06.E06SoapFlow.soapFrontendDefinition
+import flowexamples.e06.E06SoapFlow.soapFrontendFlowSpec
+import flowexamples.e06.E06SoapFlow.soapFrontendResourceKey
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 

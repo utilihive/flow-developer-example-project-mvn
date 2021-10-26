@@ -1,15 +1,16 @@
 package flowexamples.e06
 
+import com.greenbird.metercloud.integration.beanmapper.dsl.toDtoJson
 import com.greenbird.metercloud.integration.flow.spec.FlowExchangePattern.RequestResponse
 import com.greenbird.metercloud.integration.flow.spec.dsl.flowConfig
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.resources.ResourceVersionKey.Companion.newResourceVersionKey
 import flowexamples.common.FlowData.OWNER_ID
 import flowexamples.common.FlowData.fromClasspath
-import flowexamples.e06.E06TransformationScripts.capitalCityResponseToEchoResponseScript
-import flowexamples.e06.E06TransformationScripts.echoRequestToCapitalCityRequestScript
+import flowexamples.e06.E06RequestTransformationMapping.echoRequestToCapitalCityRequestMapping
+import flowexamples.e06.E06ResponseTransformationScript.capitalCityResponseToEchoResponseScript
 import java.net.URL
 
-object E06SoapFlows {
+object E06SoapFlow {
     const val echoNamespace = "http://www.bccs.uib.no/EchoService.wsdl"
     const val countryInfoNamespace = "http://www.oorsprong.org/websamples.countryinfo"
 
@@ -35,8 +36,9 @@ object E06SoapFlows {
 
     /*
         Exposing a simple EchoService soap API and integrating that with the public CountryInfoService web service.
-        We are using script conversions with our XML compliant JSON format to convert messages between the
-        two service domains.
+
+        We are using bean-mapping and script conversions with our XML compliant JSON format to convert messages between
+        the two service domains.
     */
     val soapFrontendFlowSpec = flowConfig {
         id = "soap"
@@ -54,10 +56,10 @@ object E06SoapFlows {
             """.trimIndent()
         }
 
-        executeScript {
+        beanTransformer {
             id = "echo-req-to-capital-req"
-            language = "JSON"
-            script = echoRequestToCapitalCityRequestScript
+            targetClass = "JsonCompliant"
+            transformerSpec = echoRequestToCapitalCityRequestMapping.toDtoJson()
         }
 
         soapRequest {
