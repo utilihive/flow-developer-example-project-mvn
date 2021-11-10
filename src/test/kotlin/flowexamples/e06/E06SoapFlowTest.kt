@@ -13,11 +13,13 @@ import flowexamples.e06.E06SoapFlow.soapFrontendDefinition
 import flowexamples.e06.E06SoapFlow.soapFrontendFlowSpec
 import flowexamples.e06.E06SoapFlow.soapFrontendResourceKey
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 class E06SoapFlowTest : ConcurrentTestBase() {
 
     @Test
+    @Disabled("The public services at www.oorsprong.org are currently unavailable")
     fun `E06 GIVEN live SOAP backend WHEN sending a country code THEN the country capital is returned`(
         ctx: ConcurrentTestContext
     ) {

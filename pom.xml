@@ -17,13 +17,14 @@
 
         <!-- Dependency versions -->
         <assertj-version>3.21.0</assertj-version>
-        <flow-developer-sdk-version>2.32.0</flow-developer-sdk-version>
+        <flow-developer-sdk-version>2.40.0</flow-developer-sdk-version>
         <javax.ws.rs-api-version>2.1.1</javax.ws.rs-api-version>
         <junit5-version>5.8.1</junit5-version>
         <slf4j-version>1.7.32</slf4j-version>
         <wiremock-version>2.31.0</wiremock-version>
 
         <!-- Plugins -->
+        <maven-exec-version>3.0.0</maven-exec-version>
         <maven-surefire-version>3.0.0-M5</maven-surefire-version>
     </properties>
 
@@ -145,6 +146,11 @@
         <pluginManagement>
             <plugins>
                 <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>exec-maven-plugin</artifactId>
+                    <version>${maven-exec-version}</version>
+                </plugin>
+                <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>${maven-surefire-version}</version>
@@ -215,5 +221,70 @@
 
         </plugins>
     </build>
+
+    <profiles>
+
+        <!--
+            Encrypt secrets from the command line:
+            mvn -P encrypt-secret -D uhSecretsKey=<encryption key> -D uhSecretsValue=<value>
+         -->
+        <profile>
+            <id>encrypt-secret</id>
+            <build>
+                <defaultGoal>validate</defaultGoal>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>encrypt-secret</id>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>java</goal>
+                                </goals>
+                                <configuration>
+                                    <mainClass>
+                                        com.greenbird.utilihive.integration.flowdeveloper.sdk.utils.security.SecretsEncryptor
+                                    </mainClass>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <!--
+            Decrypt secrets from the command line:
+            mvn -P decrypt-secret -D uhSecretsKey=<encryption key> -D uhSecretsValue=<encrypted value>
+         -->
+        <profile>
+            <id>decrypt-secret</id>
+            <build>
+                <defaultGoal>validate</defaultGoal>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>decrypt-secret</id>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>java</goal>
+                                </goals>
+                                <configuration>
+                                    <mainClass>
+                                        com.greenbird.utilihive.integration.flowdeveloper.sdk.utils.security.SecretsDecryptor
+                                    </mainClass>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>
