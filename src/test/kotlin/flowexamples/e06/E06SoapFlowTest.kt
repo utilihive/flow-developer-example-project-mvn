@@ -13,18 +13,16 @@ import flowexamples.e06.E06SoapFlow.soapFrontendDefinition
 import flowexamples.e06.E06SoapFlow.soapFrontendFlowSpec
 import flowexamples.e06.E06SoapFlow.soapFrontendResourceKey
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 class E06SoapFlowTest : ConcurrentTestBase() {
 
     @Test
-    @Disabled("The public services at www.oorsprong.org are currently unavailable")
-    fun `E06 GIVEN live SOAP backend WHEN sending a country code THEN the country capital is returned`(
+    fun `E06 GIVEN live SOAP backend WHEN sending a number THEN the number converted to words is returned`(
         ctx: ConcurrentTestContext
     ) {
-        val norwayCountryCode = "NO"
-        val norwayCapital = "Oslo"
+        val number = "10428"
+        val numberAsWord = "ten thousand four hundred and twenty eight"
 
         val frontendSoapApiResource = Resource(key = soapFrontendResourceKey, content = soapFrontendDefinition)
         val backendSoapApiResource = Resource(key = soapBackendResourceKey, content = soapBackendDefinition)
@@ -48,7 +46,7 @@ class E06SoapFlowTest : ConcurrentTestBase() {
             withWebServiceFlowClient(clientConfig) {
                 val xmlJson = mapOf(
                     "_xmlns" to nsMap,
-                    "SayHi" to mapOf("Hi" to mapOf("_text" to norwayCountryCode))
+                    "SayHi" to mapOf("Hi" to mapOf("_text" to number))
                 )
 
                 val response = request(xmlJson, nsMap)
@@ -56,7 +54,8 @@ class E06SoapFlowTest : ConcurrentTestBase() {
                     mapOf(
                         "_declaration" to mapOf("standalone" to "no", "version" to "1.0"),
                         "_xmlns" to nsMap,
-                        "SayHiResponse" to mapOf("HiResponse" to mapOf("_text" to norwayCapital))
+                        // the service returns an extra space at the end of the lasst word
+                        "SayHiResponse" to mapOf("HiResponse" to mapOf("_text" to "$numberAsWord "))
                     )
                 )
 

@@ -6,36 +6,36 @@ import com.greenbird.metercloud.integration.flow.spec.dsl.flowConfig
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.resources.ResourceVersionKey.Companion.newResourceVersionKey
 import flowexamples.common.FlowData.OWNER_ID
 import flowexamples.common.FlowData.fromClasspath
-import flowexamples.e06.E06RequestTransformationMapping.echoRequestToCapitalCityRequestMapping
-import flowexamples.e06.E06ResponseTransformationScript.capitalCityResponseToEchoResponseScript
+import flowexamples.e06.E06RequestTransformationMapping.echoRequestToNumberConversionRequestMapping
+import flowexamples.e06.E06ResponseTransformationScript.numberConversionResponseToEchoResponseScript
 import java.net.URL
 
 object E06SoapFlow {
     const val echoNamespace = "http://www.bccs.uib.no/EchoService.wsdl"
-    const val countryInfoNamespace = "http://www.oorsprong.org/websamples.countryinfo"
+    const val numberConversionNamespace = "http://www.dataaccess.com/webservicesserver/"
 
     // We're mapping a simple echo API deployed on the Utilihive server
     val soapFrontendDefinition = fromClasspath("/EchoService.wsdl")
 
-    // ...to a public country info service
-    val soapBackendDefinition = fromClasspath("/CountryInfoService.wsdl")
+    // ...to a public number conversion service
+    val soapBackendDefinition = fromClasspath("/NumberConversionService.wsdl")
 
     val soapFrontendResourceKey = newResourceVersionKey {
         ownerId = OWNER_ID
         type = "WSDLv1"
-        id = "soap-echo-capital-city"
+        id = "soap-echo-num-conversion"
         version = "v1"
     }
 
     val soapBackendResourceKey = newResourceVersionKey {
         ownerId = OWNER_ID
         type = "WSDLv1"
-        id = "soap-country-info"
+        id = "soap-num-conversion"
         version = "v1"
     }
 
     /*
-        Exposing a simple EchoService soap API and integrating that with the public CountryInfoService web service.
+        Exposing a simple EchoService soap API and integrating that with the public NumberConversion web service.
 
         We are using bean-mapping and script conversions with our XML compliant JSON format to convert messages between
         the two service domains.
@@ -47,7 +47,7 @@ object E06SoapFlow {
         exchangePattern = RequestResponse
 
         soapApi {
-            id = "soap-echo-capital-city-api"
+            id = "soap-echo-num-conversion-api"
             wsdlSpecId = soapFrontendResourceKey.toResourceIdentifier()
             serviceName = "EchoService"
             portName = "EchoService"
@@ -57,23 +57,26 @@ object E06SoapFlow {
         }
 
         beanTransformer {
-            id = "echo-req-to-capital-req"
+            id = "echo-req-to-num-conversion"
             targetClass = "JsonCompliant"
-            transformerSpec = echoRequestToCapitalCityRequestMapping.toDtoJson()
+            transformerSpec = echoRequestToNumberConversionRequestMapping.toDtoJson()
         }
 
         soapRequest {
-            id = "soap-country-info-request"
-            address = URL("http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso")
+            id = "soap-num-conversion-request"
+            address = URL("https://www.dataaccess.com/webservicesserver/NumberConversion.wso")
             wsdlSpecId = soapBackendResourceKey.toResourceIdentifier()
-            serviceName = "CountryInfoService"
-            portName = "CountryInfoServiceSoap"
+            serviceName = "NumberConversion"
+            portName = "NumberConversionSoap"
+            responseNamespacePrefixMapping = """
+                n=$numberConversionNamespace
+            """.trimIndent()
         }
 
         executeScript {
-            id = "capital-resp-to-echo-resp"
+            id = "no-to-words-resp-to-echo-resp"
             language = "JSON"
-            script = capitalCityResponseToEchoResponseScript
+            script = numberConversionResponseToEchoResponseScript
         }
 
     }
