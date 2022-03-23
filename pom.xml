@@ -17,7 +17,7 @@
 
         <!-- Dependency versions -->
         <assertj-version>3.22.0</assertj-version>
-        <flow-developer-sdk-version>2.86.0</flow-developer-sdk-version>
+        <flow-developer-sdk-version>2.87.0</flow-developer-sdk-version>
         <javax.ws.rs-api-version>2.1.1</javax.ws.rs-api-version>
         <junit5-version>5.8.2</junit5-version>
         <slf4j-version>1.7.36</slf4j-version>
@@ -83,6 +83,21 @@
             <version>${flow-developer-sdk-version}</version>
         </dependency>
 
+        <!-- JAX-RS - REST client -->
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <scope>runtime</scope>
+            <version>${javax.ws.rs-api-version}</version>
+        </dependency>
+
+        <!-- SLF4J-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <scope>runtime</scope>
+            <version>${slf4j-version}</version>
+        </dependency>
 
         <!-- TEST -->
 
@@ -92,14 +107,6 @@
             <artifactId>assertj-core</artifactId>
             <version>${assertj-version}</version>
             <scope>test</scope>
-        </dependency>
-
-        <!-- JAX-RS - REST client -->
-        <dependency>
-            <groupId>javax.ws.rs</groupId>
-            <artifactId>javax.ws.rs-api</artifactId>
-            <scope>test</scope>
-            <version>${javax.ws.rs-api-version}</version>
         </dependency>
 
         <!-- JUnit -->
@@ -121,14 +128,6 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- SLF4J-->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>${slf4j-version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -285,6 +284,78 @@
                 </plugins>
             </build>
         </profile>
+
+        <!--
+            Deploy flows, resources and secrets from the command line.
+
+            The Deployer takes some configuration parameters that can be sourced from environment variables,
+            system properties, classpath configuration and input prompted from the user.
+            See the Utilihive deployment documentation for details.
+
+            In this example we rely on the following being available as classpath configuration for the 'sdktraining'
+            ownerId in the 'test' environment. This configuration is found in
+            src/main/resources/deployment/sdktraining/test/deployer.properties.
+
+            * uhIdentityApiRoot:   Root URI for the Utilihive Identity API (including .../api).
+                                   Used to provide access tokens to the deployer.
+                                   E.g. `https://api.dev.utilihive.io/metercloud-integration-identity/api`.
+            * uhManagementApiRoot: Root URI for the Utilihive customers management API (up to, but not including .../\{ownerId}).
+                                   Used to manage deployments.
+                                   E.g. `https://api.dev.utilihive.io`.
+            * uhFlowScanRoot:      The root package to scan for flow specs in.
+                                   Will improve the performance of the flow scanning.
+                                   E.g. `com.mycompany.flows`.
+
+            We provide these parameters as system properties on the command line (-D <name>=<value>):
+            * uhOwnerId:           The id of the customer organization owning the deployments.
+            * uhEnvironment:       The environment to deploy to.
+
+            We do not provide these required parameters, and expect to be prompted for them:
+            * uhDeployerUser:      The username of a customer deployer.
+                                   Must have the `Admin` role for the selected owner and environment.
+            * uhDeployerPassword:  The password of the customer deployer.
+
+            We do not provide this parameter, but expect it to be available as an environment variable:
+            * uhDecryptionKey:     The decryption key used to decrypt any sensitive values stored in property files.
+
+
+            In this example we are not using these optional parameters:
+            * uhDeploymentGroups:  Comma separated list of flow groups to select for deployment.
+                                   All flows will be selected if this parameter is not set.
+                                   Flows can be associated with groups by using the `group()`
+                                   flow spec builder function.
+            * uhFlowIdRegex:       Regular expression that will be used to filter flows to de deployed.
+
+
+            mvn -P deploy-flows -D uhOwnerId=sdktraining -D uhEnvironment=test
+         -->
+        <profile>
+            <id>deploy-flows</id>
+            <build>
+                <defaultGoal>compile</defaultGoal>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>deploy-flows</id>
+                                <phase>compile</phase>
+                                <goals>
+                                    <goal>java</goal>
+                                </goals>
+                                <configuration>
+                                    <mainClass>
+                                        com.greenbird.utilihive.integration.deployment.deployer.Deployer
+                                    </mainClass>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
     </profiles>
 
 </project>
