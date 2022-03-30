@@ -296,38 +296,42 @@
             ownerId in the 'test' environment. This configuration is found in
             src/main/resources/deployment/sdktraining/test/deployer.properties.
 
-            * uhIdentityApiRoot:   Root URI for the Utilihive Identity API (including .../api).
+            * identity-api-root:   Root URI for the Utilihive Identity API (including .../api).
                                    Used to provide access tokens to the deployer.
                                    E.g. `https://api.dev.utilihive.io/metercloud-integration-identity/api`.
-            * uhManagementApiRoot: Root URI for the Utilihive customers management API (up to, but not including .../\{ownerId}).
+            * management-api-root: Root URI for the Utilihive customers management API (up to, but not including .../\{ownerId}).
                                    Used to manage deployments.
                                    E.g. `https://api.dev.utilihive.io`.
-            * uhFlowScanRoot:      The root package to scan for flow specs in.
+            * flow-scan-root:      The root package to scan for flow specs in.
                                    Will improve the performance of the flow scanning.
                                    E.g. `com.mycompany.flows`.
 
             We provide these parameters as system properties on the command line (-D <name>=<value>):
-            * uhOwnerId:           The id of the customer organization owning the deployments.
-            * uhEnvironment:       The environment to deploy to.
+            * owner-id:            The id of the customer organization owning the deployments.
+            * environment:         The environment to deploy to.
 
             We do not provide these required parameters, and expect to be prompted for them:
-            * uhDeployerUser:      The username of a customer deployer.
+            * deployer-user:       The username of a customer deployer.
                                    Must have the `Admin` role for the selected owner and environment.
-            * uhDeployerPassword:  The password of the customer deployer.
+            * deployer-pwd:  The password of the customer deployer.
 
             We do not provide this parameter, but expect it to be available as an environment variable:
-            * uhDecryptionKey:     The decryption key used to decrypt any sensitive values stored in property files.
+            * decryption-key:      The decryption key used to decrypt any sensitive values stored in property files.
 
 
             In this example we are not using these optional parameters:
-            * uhDeploymentGroups:  Comma separated list of flow groups to select for deployment.
+            * groups:              Comma separated list of flow groups to select for deployment.
                                    All flows will be selected if this parameter is not set.
                                    Flows can be associated with groups by using the `group()`
                                    flow spec builder function.
-            * uhFlowIdRegex:       Regular expression that will be used to filter flows to de deployed.
+            * flow-pattern:        Regular expression that will be used to filter flows to be processed by flow id.
+            * resource-pattern:    Regular expression that will be used to filter resources to be processed by resource id.
+            * secrets-pattern:     Regular expression that will be used to filter secrets to be processed by secrets key.
+            * dry-run:             Run the process, but skip all mutating operations. Default: false.
+            * forced:              Deploy flows and resource even if they are not outdated on the server. Default: false.
+            * command:             Which operation the deployer should execute. Either deploy or diff. Default: deploy.
 
-
-            mvn -P deploy-flows -D uhOwnerId=sdktraining -D uhEnvironment=test
+            mvn -P deploy-flows -D owner-id=sdktraining -D environment=test
          -->
         <profile>
             <id>deploy-flows</id>
