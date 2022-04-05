@@ -17,7 +17,7 @@
 
         <!-- Dependency versions -->
         <assertj-version>3.22.0</assertj-version>
-        <flow-developer-sdk-version>2.90.0</flow-developer-sdk-version>
+        <flow-developer-sdk-version>2.91.0</flow-developer-sdk-version>
         <javax.ws.rs-api-version>2.1.1</javax.ws.rs-api-version>
         <junit5-version>5.8.2</junit5-version>
         <slf4j-version>1.7.36</slf4j-version>
@@ -329,7 +329,7 @@
             * secrets-pattern:     Regular expression that will be used to filter secrets to be processed by secrets key.
             * dry-run:             Run the process, but skip all mutating operations. Default: false.
             * forced:              Deploy flows and resource even if they are not outdated on the server. Default: false.
-            * command:             Which operation the deployer should execute. Either deploy or diff. Default: deploy.
+            * command:             Which operation the deployer should execute. Either deploy, diff or delete. Default: deploy.
 
             mvn -P deploy-flows -D owner-id=sdktraining -D environment=test
          -->
