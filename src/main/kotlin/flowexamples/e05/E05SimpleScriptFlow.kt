@@ -2,7 +2,7 @@ package flowexamples.e05
 
 import com.greenbird.metercloud.integration.flow.spec.FlowExchangePattern.RequestResponse
 import com.greenbird.metercloud.integration.flow.spec.dsl.flowConfig
-import com.greenbird.utilihive.integration.flowdeveloper.sdk.resources.ResourceVersionKey.Companion.newResourceVersionKey
+import com.greenbird.utilihive.integration.flowdeveloper.sdk.resources.ResourceRevisionKey.Companion.newResourceRevisionKey
 import flowexamples.common.FlowData.OWNER_ID
 import flowexamples.common.FlowData.fromClasspath
 import flowexamples.e05.E05SimpleScript.simpleScript
@@ -10,11 +10,11 @@ import flowexamples.e05.E05SimpleScript.simpleScript
 object E05SimpleScriptFlow {
     val simpleScriptOpenApiDefinition = fromClasspath("/echo-open-api-v1.json")
 
-    val simpleScriptResourceKey = newResourceVersionKey {
+    val simpleScriptResourceKey = newResourceRevisionKey {
         ownerId = OWNER_ID
         type = "OpenAPIv3"
         id = "simple-script-api"
-        version = "v1"
+        revision = "latest"
     }
 
     val simpleScriptSpec = flowConfig {

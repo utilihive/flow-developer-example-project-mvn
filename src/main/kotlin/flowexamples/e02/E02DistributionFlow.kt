@@ -3,7 +3,7 @@ package flowexamples.e02
 import com.greenbird.metercloud.integration.flow.spec.FlowExchangePattern.OneWay
 import com.greenbird.metercloud.integration.flow.spec.FlowExchangePattern.RequestResponse
 import com.greenbird.metercloud.integration.flow.spec.dsl.flowConfig
-import com.greenbird.utilihive.integration.flowdeveloper.sdk.resources.ResourceVersionKey.Companion.newResourceVersionKey
+import com.greenbird.utilihive.integration.flowdeveloper.sdk.resources.ResourceRevisionKey.Companion.newResourceRevisionKey
 import flowexamples.common.FlowData.OWNER_ID
 import flowexamples.common.FlowData.fromClasspath
 
@@ -14,11 +14,11 @@ object E02DistributionFlow {
 
     val distributionOpenApiDefinition = fromClasspath("/echo-open-api-v1.json")
 
-    val distributionRestResourceKey = newResourceVersionKey {
+    val distributionRestResourceKey = newResourceRevisionKey {
         ownerId = OWNER_ID
         type = "OpenAPIv3"
         id = "distribution-api"
-        version = "v1"
+        revision = "latest"
     }
 
     val distributionApiSpec = flowConfig {

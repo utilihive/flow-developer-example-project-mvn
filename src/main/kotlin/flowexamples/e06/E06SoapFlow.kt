@@ -3,7 +3,7 @@ package flowexamples.e06
 import com.greenbird.metercloud.integration.beanmapper.dsl.toDtoJson
 import com.greenbird.metercloud.integration.flow.spec.FlowExchangePattern.RequestResponse
 import com.greenbird.metercloud.integration.flow.spec.dsl.flowConfig
-import com.greenbird.utilihive.integration.flowdeveloper.sdk.resources.ResourceVersionKey.Companion.newResourceVersionKey
+import com.greenbird.utilihive.integration.flowdeveloper.sdk.resources.ResourceRevisionKey.Companion.newResourceRevisionKey
 import flowexamples.common.FlowData.OWNER_ID
 import flowexamples.common.FlowData.fromClasspath
 import flowexamples.e06.E06RequestTransformationMapping.echoRequestToNumberConversionRequestMapping
@@ -20,18 +20,18 @@ object E06SoapFlow {
     // ...to a public number conversion service
     val soapBackendDefinition = fromClasspath("/NumberConversionService.wsdl")
 
-    val soapFrontendResourceKey = newResourceVersionKey {
+    val soapFrontendResourceKey = newResourceRevisionKey {
         ownerId = OWNER_ID
         type = "WSDLv1"
         id = "soap-echo-num-conversion"
-        version = "v1"
+        revision = "latest"
     }
 
-    val soapBackendResourceKey = newResourceVersionKey {
+    val soapBackendResourceKey = newResourceRevisionKey {
         ownerId = OWNER_ID
         type = "WSDLv1"
         id = "soap-num-conversion"
-        version = "v1"
+        revision = "latest"
     }
 
     /*

@@ -2,18 +2,18 @@ package flowexamples.e01
 
 import com.greenbird.metercloud.integration.flow.spec.FlowExchangePattern.RequestResponse
 import com.greenbird.metercloud.integration.flow.spec.dsl.flowConfig
-import com.greenbird.utilihive.integration.flowdeveloper.sdk.resources.ResourceVersionKey.Companion.newResourceVersionKey
+import com.greenbird.utilihive.integration.flowdeveloper.sdk.resources.ResourceRevisionKey.Companion.newResourceRevisionKey
 import flowexamples.common.FlowData.OWNER_ID
 import flowexamples.common.FlowData.fromClasspath
 
 object E01SimpleRestFlow {
     val simpleRestOpenApiDefinition = fromClasspath("/echo-open-api-v1.json")
 
-    val simpleRestResourceKey = newResourceVersionKey {
+    val simpleRestResourceKey = newResourceRevisionKey {
         ownerId = OWNER_ID
         type = "OpenAPIv3"
         id = "simple-rest-api"
-        version = "v1"
+        revision = "latest"
     }
 
     val simpleRestSpec = flowConfig {
