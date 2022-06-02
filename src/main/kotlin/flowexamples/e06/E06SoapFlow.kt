@@ -58,7 +58,6 @@ object E06SoapFlow {
 
         beanTransformer {
             id = "echo-req-to-num-conversion"
-            targetClass = "JsonCompliant"
             transformerSpec = echoRequestToNumberConversionRequestMapping.toDtoJson()
         }
 

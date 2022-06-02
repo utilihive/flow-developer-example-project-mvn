@@ -54,7 +54,7 @@ class E06SoapFlowTest : ConcurrentTestBase() {
                     mapOf(
                         "_declaration" to mapOf("standalone" to "no", "version" to "1.0"),
                         "_xmlns" to nsMap,
-                        // the service returns an extra space at the end of the lasst word
+                        // the service returns an extra space at the end of the last word
                         "SayHiResponse" to mapOf("HiResponse" to mapOf("_text" to "$numberAsWord "))
                     )
                 )

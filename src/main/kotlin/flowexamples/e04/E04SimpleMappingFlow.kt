@@ -31,7 +31,6 @@ object E04SimpleMappingFlow {
 
         beanTransformer {
             id = "map-response"
-            targetClass = "JsonCompliant" // Value "JsonCompliant" required when mapping dynamic data
             transformerSpec = simpleMapping.toDtoJson() // include the serialized version of the mapping
         }
     }
