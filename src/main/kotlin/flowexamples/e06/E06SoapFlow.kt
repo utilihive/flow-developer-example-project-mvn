@@ -42,7 +42,7 @@ object E06SoapFlow {
     */
     val soapFrontendFlowSpec = flowConfig {
         id = "soap"
-        name = id
+        description = "SOAP Flow"
         ownerId = OWNER_ID
         exchangePattern = RequestResponse
 

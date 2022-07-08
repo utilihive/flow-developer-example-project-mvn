@@ -21,7 +21,7 @@ object E03HttpRequestFlow {
 
     val httpRequestSpec = flowConfig {
         id = "http-request"
-        name = id
+        description = "HTTP Request Flow"
         ownerId = OWNER_ID
         exchangePattern = RequestResponse
 

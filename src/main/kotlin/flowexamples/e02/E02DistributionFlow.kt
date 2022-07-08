@@ -23,7 +23,7 @@ object E02DistributionFlow {
 
     val distributionApiSpec = flowConfig {
         id = FLOW_ID_API
-        name = id
+        description = "Distribution Flow"
         ownerId = OWNER_ID
         exchangePattern = RequestResponse
 
@@ -52,7 +52,7 @@ object E02DistributionFlow {
 
     val distributionTarget1Spec = flowConfig {
         id = FLOW_ID_TARGET_1
-        name = id
+        description = "Distribution Target Flow"
         ownerId = OWNER_ID
         exchangePattern = OneWay
 
@@ -67,7 +67,7 @@ object E02DistributionFlow {
 
     val distributionTarget2Spec = flowConfig {
         id = FLOW_ID_TARGET_2
-        name = id
+        description = "Distribution Target Flow"
         ownerId = OWNER_ID
         exchangePattern = OneWay
 

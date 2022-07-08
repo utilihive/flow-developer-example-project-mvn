@@ -20,7 +20,7 @@ object E04SimpleMappingFlow {
 
     val simpleMappingSpec = flowConfig {
         id = "simple-mapping"
-        name = id
+        description = "Simple Mapping Flow"
         ownerId = OWNER_ID
         exchangePattern = RequestResponse
 

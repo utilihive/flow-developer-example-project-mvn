@@ -18,7 +18,7 @@ object E01SimpleRestFlow {
 
     val simpleRestSpec = flowConfig {
         id = "simple-rest"
-        name = id
+        description = "Simple REST Flow"
         ownerId = OWNER_ID
         exchangePattern = RequestResponse
 

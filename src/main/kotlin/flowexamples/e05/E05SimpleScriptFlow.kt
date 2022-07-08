@@ -19,7 +19,7 @@ object E05SimpleScriptFlow {
 
     val simpleScriptSpec = flowConfig {
         id = "simple-script"
-        name = id
+        description = "Simple Script Flow"
         ownerId = OWNER_ID
         exchangePattern = RequestResponse
 
