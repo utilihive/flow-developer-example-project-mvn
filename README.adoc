@@ -40,4 +40,5 @@ Create or edit the file located at `$HOME/.m2/settings.xml` on your computer and
 
 The flows and tests are written in Kotlin and need the https://www.jetbrains.com/idea/download/[IntelliJ IDEA] installed to run them.
 
-For more information on setting up your workspace, check out the https://docs.utilihive.io/utilihive-integration/development/installation/[Installation and Requirements section] of the Utilihive documentation.
+For more information on setting up your workspace, check out the https://docs.utilihive.io/utilihive-integration/getting-started/installation[Installing the SDK section] of the Utilihive documentation.
+You can also run the OS-specific scripts in the link:scripts[scripts] folder to verify common issues that might affect your setup process.
