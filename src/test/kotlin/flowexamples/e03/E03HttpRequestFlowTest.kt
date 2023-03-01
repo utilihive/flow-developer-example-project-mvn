@@ -4,12 +4,12 @@ import com.github.tomakehurst.wiremock.client.WireMock.*
 import com.greenbird.metercloud.integration.flow.spec.dsl.RestRequestConfig
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.flow.FlowEditor.map
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.resources.Resource
-import com.greenbird.utilihive.integration.flowdeveloper.sdk.utils.rest.basicAuth
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.FlowTestManager.Companion.flowTest
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.addFlowTestConfig
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.backends.wiremock.WireMockTestBackend.withWireMock
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.entities.SimpleMessage
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.entities.SimpleValue
+import com.greenbird.utilihive.integration.flowdeveloper.sdk.utils.rest.basicAuth
 import com.greenbird.utilihive.integration.test.concurrent.core.ConcurrentTestContext
 import com.greenbird.utilihive.integration.test.concurrent.core.junit5.ConcurrentTestBase
 import flowexamples.e03.E03HttpRequestFlow.BACKEND_AUTHENTICATION_KEY
@@ -51,7 +51,7 @@ class E03HttpRequestFlowTest : ConcurrentTestBase() {
                 authConfig(
                     BACKEND_AUTHENTICATION_KEY, mapOf(
                         "userName" to user,
-                        "pwd" to pwd
+                        "password" to pwd
                     )
                 )
 
