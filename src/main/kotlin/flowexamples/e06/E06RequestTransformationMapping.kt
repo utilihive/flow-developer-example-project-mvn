@@ -1,6 +1,5 @@
 package flowexamples.e06
 
-import com.greenbird.metercloud.integration.beanmapper.dsl.mappingConfig
 import flowexamples.e06.E06SoapFlow.numberConversionNamespace
 
 object E06RequestTransformationMapping {
@@ -15,14 +14,17 @@ object E06RequestTransformationMapping {
         - NumberConversion:   We are binding the number conversion namespace to the "n" prefix, and are
                               therefore using the "n_" prefix to define the CapitalCity elements in the mapping.
     */
-    val echoRequestToNumberConversionRequestMapping = mappingConfig {
-        id = "echo-request-to-number-conversion-request-mapping"
-        displayName = id
-
-        mapping {
-            "_xmlns.n" setTo numberConversionNamespace
-            "SayHi.Hi._text" to "n_NumberToWords.n_ubiNum._text"
+    val echoRequestToNumberConversionRequestMapping = """
+        {
+            "_xmlns" : {
+                "n" : "$numberConversionNamespace"
+            },
+            "n_NumberToWords" : {
+                "n_ubiNum" : {
+                    "_text": #input.payload.SayHi.Hi._text
+                }
+            }
         }
-    }
+    """.trimIndent()
 
 }

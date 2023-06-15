@@ -1,6 +1,5 @@
 package flowexamples.e04
 
-import com.greenbird.metercloud.integration.beanmapper.dsl.toDtoJson
 import com.greenbird.metercloud.integration.flow.spec.FlowExchangePattern.RequestResponse
 import com.greenbird.metercloud.integration.flow.spec.dsl.flowConfig
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.resources.ResourceRevisionKey.Companion.newResourceRevisionKey
@@ -29,9 +28,9 @@ object E04SimpleMappingFlow {
             apiSpecId = simpleMappingResourceKey.toResourceIdentifier()
         }
 
-        beanTransformer {
+        map {
             id = "map-response"
-            transformerSpec = simpleMapping.toDtoJson() // include the serialized version of the mapping
+            mapSpec = simpleMapping
         }
     }
 

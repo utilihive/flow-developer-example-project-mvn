@@ -1,6 +1,5 @@
 package flowexamples.e06
 
-import com.greenbird.metercloud.integration.beanmapper.dsl.toDtoJson
 import com.greenbird.metercloud.integration.flow.spec.FlowExchangePattern.RequestResponse
 import com.greenbird.metercloud.integration.flow.spec.dsl.flowConfig
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.resources.ResourceRevisionKey.Companion.newResourceRevisionKey
@@ -56,9 +55,9 @@ object E06SoapFlow {
             """.trimIndent()
         }
 
-        beanTransformer {
+        map {
             id = "echo-req-to-num-conversion"
-            transformerSpec = echoRequestToNumberConversionRequestMapping.toDtoJson()
+            mapSpec = echoRequestToNumberConversionRequestMapping
         }
 
         soapRequest {
