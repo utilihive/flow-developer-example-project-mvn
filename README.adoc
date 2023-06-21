@@ -5,7 +5,7 @@
 == Overview
 
 This example codebase serves as an introduction to the Utilihive Flow Developer SDK while demonstrating common use cases and best practices.
-Developers new to writing integration flows should clone this repository and refer to the official https://docs.utilihive.io/utilihive-integration/development/[Utilihive documentation] for additional help.
+Developers new to writing integration flows should clone this repository and refer to the official https://docs.utilihive.io/utilihive-integration/[Utilihive documentation] for additional help.
 
 == Example Flows
 
@@ -15,7 +15,7 @@ These flow specifications can be found in the link:src/main/kotlin/flowexamples[
 Each sample flow also has a corresponding unit test in the link:src/test/kotlin/flowexamples[test/kotlin/flowexamples] directory.
 It is important to test flows during the development process, which is why the SDK includes a robust testing framework and local test server to deploy flows on.
 
-For a more detailed walkthrough of the example flows and test features, check out the https://docs.utilihive.io/utilihive-integration/development/getting-started/[Getting Started section] of the Utilihive documentation.
+For a more detailed walkthrough of the example flows and test features, check out the https://docs.utilihive.io/utilihive-integration/getting-started/examples/e01/[Getting Started section] of the Utilihive documentation.
 
 == Installation
 
@@ -40,5 +40,5 @@ Create or edit the file located at `$HOME/.m2/settings.xml` on your computer and
 
 The flows and tests are written in Kotlin and need the https://www.jetbrains.com/idea/download/[IntelliJ IDEA] installed to run them.
 
-For more information on setting up your workspace, check out the https://docs.utilihive.io/utilihive-integration/getting-started/installation[Installing the SDK section] of the Utilihive documentation.
+For more information on setting up your workspace, check out the https://docs.utilihive.io/utilihive-integration/getting-started/installation/[Installing the Tools section] of the Utilihive documentation.
 You can also run the OS-specific scripts in the link:scripts[scripts] folder to verify common issues that might affect your setup process.
