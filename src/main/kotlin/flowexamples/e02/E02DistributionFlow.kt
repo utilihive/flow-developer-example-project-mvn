@@ -38,14 +38,13 @@ object E02DistributionFlow {
             flowId(FLOW_ID_TARGET_2)
         }
 
-        executeScript {
+        map {
             id = "create-response"
-            language = "JSON"
-            script = """
-                return {
-                    message : 'Distributed'
+            mapSpec = """
+                {
+                    "message" : "Distributed"
                 }
-                """.trimIndent()
+            """.trimIndent()
         }
 
     }

@@ -27,14 +27,13 @@ object E01SimpleRestFlow {
             apiSpecId = simpleRestResourceKey.toResourceIdentifier()
         }
 
-        executeScript {
+        map {
             id = "echo-response-creator"
-            language = "JSON"
-            script = """
-                return {
-                    message : input.payload.value
+            mapSpec = """
+                {
+                    "message" : #input.payload.value
                 }
-                """.trimIndent()
+            """.trimIndent()
         }
 
     }

@@ -6,7 +6,7 @@ import com.greenbird.utilihive.integration.flowdeveloper.sdk.resources.ResourceR
 import flowexamples.common.FlowData.OWNER_ID
 import flowexamples.common.FlowData.fromClasspath
 import flowexamples.e06.E06RequestTransformationMapping.echoRequestToNumberConversionRequestMapping
-import flowexamples.e06.E06ResponseTransformationScript.numberConversionResponseToEchoResponseScript
+import flowexamples.e06.E06ResponseTransformationMapping.numberConversionResponseToEchoResponseMapping
 import java.net.URL
 
 object E06SoapFlow {
@@ -71,10 +71,9 @@ object E06SoapFlow {
             """.trimIndent()
         }
 
-        executeScript {
+        map {
             id = "no-to-words-resp-to-echo-resp"
-            language = "JSON"
-            script = numberConversionResponseToEchoResponseScript
+            mapSpec = numberConversionResponseToEchoResponseMapping
         }
 
     }
