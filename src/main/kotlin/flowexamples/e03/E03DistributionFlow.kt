@@ -1,13 +1,15 @@
-package flowexamples.e02
+package flowexamples.e03
 
 import com.greenbird.metercloud.integration.flow.spec.FlowExchangePattern.OneWay
 import com.greenbird.metercloud.integration.flow.spec.FlowExchangePattern.RequestResponse
+import com.greenbird.metercloud.integration.flow.spec.dsl.HttpMethod.POST
 import com.greenbird.metercloud.integration.flow.spec.dsl.flowConfig
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.resources.ResourceRevisionKey.Companion.newResourceRevisionKey
 import flowexamples.common.FlowData.OWNER_ID
 import flowexamples.common.FlowData.fromClasspath
+import java.net.URL
 
-object E02DistributionFlow {
+object E03DistributionFlow {
     private const val FLOW_ID_API = "distribution-api"
     private const val FLOW_ID_TARGET_1 = "distribution-target-1-handoff"
     private const val FLOW_ID_TARGET_2 = "distribution-target-2-handoff"
@@ -57,9 +59,10 @@ object E02DistributionFlow {
 
         handoff { id = "handoff-source-1" }
 
-        test {
-            id = "log-processing-1"
-            messageLoggingStrategy { logDescription = true }
+        restRequest {
+            id = "request-handoff-1"
+            defaultMethod = POST
+            address = URL("https://OVERRIDE_ME/target1")
         }
 
     }
@@ -72,9 +75,10 @@ object E02DistributionFlow {
 
         handoff { id = "handoff-source-2" }
 
-        test {
-            id = "log-processing-2"
-            messageLoggingStrategy { logDescription = true }
+        restRequest {
+            id = "request-handoff-2"
+            defaultMethod = POST
+            address = URL("https://OVERRIDE_ME/target2")
         }
 
     }

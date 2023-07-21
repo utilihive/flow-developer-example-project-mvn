@@ -1,4 +1,4 @@
-package flowexamples.e03
+package flowexamples.e02
 
 import com.github.tomakehurst.wiremock.client.WireMock.*
 import com.greenbird.metercloud.integration.flow.spec.dsl.RestRequestConfig
@@ -12,19 +12,19 @@ import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.entities.Si
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.utils.rest.basicAuth
 import com.greenbird.utilihive.integration.test.concurrent.core.ConcurrentTestContext
 import com.greenbird.utilihive.integration.test.concurrent.core.junit5.ConcurrentTestBase
-import flowexamples.e03.E03HttpRequestFlow.BACKEND_AUTHENTICATION_KEY
-import flowexamples.e03.E03HttpRequestFlow.httpRequestOpenApiDefinition
-import flowexamples.e03.E03HttpRequestFlow.httpRequestResourceKey
-import flowexamples.e03.E03HttpRequestFlow.httpRequestSpec
+import flowexamples.e02.E02HttpRequestFlow.BACKEND_AUTHENTICATION_KEY
+import flowexamples.e02.E02HttpRequestFlow.httpRequestOpenApiDefinition
+import flowexamples.e02.E02HttpRequestFlow.httpRequestResourceKey
+import flowexamples.e02.E02HttpRequestFlow.httpRequestSpec
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import java.net.URL
 import javax.ws.rs.client.Entity.json
 
-class E03HttpRequestFlowTest : ConcurrentTestBase() {
+class E02HttpRequestFlowTest : ConcurrentTestBase() {
 
     @Test
-    fun `E03 GIVEN wiremock backend stub WHEN sending a value THEN an authenticated request is forwarded to the stub flow and echoed back`(
+    fun `E02 GIVEN wiremock backend stub WHEN sending a value THEN an authenticated request is forwarded to the stub flow and echoed back`(
         ctx: ConcurrentTestContext
     ) {
         val inputValue = "testValue"

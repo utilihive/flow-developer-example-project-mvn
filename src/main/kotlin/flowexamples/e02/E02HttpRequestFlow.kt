@@ -1,4 +1,4 @@
-package flowexamples.e03
+package flowexamples.e02
 
 import com.greenbird.metercloud.integration.flow.spec.FlowExchangePattern.RequestResponse
 import com.greenbird.metercloud.integration.flow.spec.dsl.HttpMethod.POST
@@ -8,7 +8,7 @@ import flowexamples.common.FlowData.OWNER_ID
 import flowexamples.common.FlowData.fromClasspath
 import java.net.URL
 
-object E03HttpRequestFlow {
+object E02HttpRequestFlow {
     const val BACKEND_AUTHENTICATION_KEY = "backendAuth"
     val httpRequestOpenApiDefinition = fromClasspath("/echo-open-api-v1.json")
 
