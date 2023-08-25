@@ -1,8 +1,8 @@
-package flowexamples.e06
+package flowexamples.e05
 
-import flowexamples.e06.E06SoapFlow.echoNamespace
+import flowexamples.e05.E05SoapFlow.echoNamespace
 
-object E06ResponseTransformationMapping {
+object E05ResponseTransformationMapping {
 
     /*
         Converting the NumberToWordsResponse to the SayHiResponse expected by the echo service exposed by our flow.

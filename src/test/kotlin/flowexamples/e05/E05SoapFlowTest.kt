@@ -1,4 +1,4 @@
-package flowexamples.e06
+package flowexamples.e05
 
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.client.ws.WebServiceClientConfig
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.resources.Resource
@@ -6,16 +6,16 @@ import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.FlowTestMan
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.addFlowTestConfig
 import com.greenbird.utilihive.integration.test.concurrent.core.ConcurrentTestContext
 import com.greenbird.utilihive.integration.test.concurrent.core.junit5.ConcurrentTestBase
-import flowexamples.e06.E06SoapFlow.echoNamespace
-import flowexamples.e06.E06SoapFlow.soapBackendDefinition
-import flowexamples.e06.E06SoapFlow.soapBackendResourceKey
-import flowexamples.e06.E06SoapFlow.soapFrontendDefinition
-import flowexamples.e06.E06SoapFlow.soapFrontendFlowSpec
-import flowexamples.e06.E06SoapFlow.soapFrontendResourceKey
+import flowexamples.e05.E05SoapFlow.echoNamespace
+import flowexamples.e05.E05SoapFlow.soapBackendDefinition
+import flowexamples.e05.E05SoapFlow.soapBackendResourceKey
+import flowexamples.e05.E05SoapFlow.soapFrontendDefinition
+import flowexamples.e05.E05SoapFlow.soapFrontendFlowSpec
+import flowexamples.e05.E05SoapFlow.soapFrontendResourceKey
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-class E06SoapFlowTest : ConcurrentTestBase() {
+class E05SoapFlowTest : ConcurrentTestBase() {
 
     @Test
     fun `E06 GIVEN live SOAP backend WHEN sending a number THEN the number converted to words is returned`(

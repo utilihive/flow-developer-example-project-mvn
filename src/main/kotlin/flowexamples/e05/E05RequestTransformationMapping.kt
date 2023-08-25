@@ -1,8 +1,8 @@
-package flowexamples.e06
+package flowexamples.e05
 
-import flowexamples.e06.E06SoapFlow.numberConversionNamespace
+import flowexamples.e05.E05SoapFlow.numberConversionNamespace
 
-object E06RequestTransformationMapping {
+object E05RequestTransformationMapping {
 
     /*
         Converting the echo SayHi request to a request for the NumberToWords operation of the public NumberConversion

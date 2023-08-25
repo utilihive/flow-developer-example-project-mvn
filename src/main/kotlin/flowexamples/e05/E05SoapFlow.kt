@@ -1,15 +1,15 @@
-package flowexamples.e06
+package flowexamples.e05
 
 import com.greenbird.metercloud.integration.flow.spec.FlowExchangePattern.RequestResponse
 import com.greenbird.metercloud.integration.flow.spec.dsl.flowConfig
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.resources.ResourceRevisionKey.Companion.newResourceRevisionKey
 import flowexamples.common.FlowData.OWNER_ID
 import flowexamples.common.FlowData.fromClasspath
-import flowexamples.e06.E06RequestTransformationMapping.echoRequestToNumberConversionRequestMapping
-import flowexamples.e06.E06ResponseTransformationMapping.numberConversionResponseToEchoResponseMapping
+import flowexamples.e05.E05RequestTransformationMapping.echoRequestToNumberConversionRequestMapping
+import flowexamples.e05.E05ResponseTransformationMapping.numberConversionResponseToEchoResponseMapping
 import java.net.URL
 
-object E06SoapFlow {
+object E05SoapFlow {
     const val echoNamespace = "http://www.bccs.uib.no/EchoService.wsdl"
     const val numberConversionNamespace = "http://www.dataaccess.com/webservicesserver/"
 
