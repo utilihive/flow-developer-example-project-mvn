@@ -22,7 +22,7 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import java.net.URL
 import java.time.Duration.ofSeconds
-import javax.ws.rs.client.Entity.json
+import jakarta.ws.rs.client.Entity.json
 
 class E03DistributionFlowTest : ConcurrentTestBase() {
     private val TIMEOUT_DURATION = ofSeconds(5)

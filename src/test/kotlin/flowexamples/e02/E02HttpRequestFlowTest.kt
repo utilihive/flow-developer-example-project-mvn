@@ -19,7 +19,7 @@ import flowexamples.e02.E02HttpRequestFlow.httpRequestSpec
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import java.net.URL
-import javax.ws.rs.client.Entity.json
+import jakarta.ws.rs.client.Entity.json
 
 class E02HttpRequestFlowTest : ConcurrentTestBase() {
 

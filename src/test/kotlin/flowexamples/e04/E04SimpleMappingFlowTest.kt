@@ -13,7 +13,7 @@ import flowexamples.e04.E04SimpleMappingFlow.simpleMappingResourceKey
 import flowexamples.e04.E04SimpleMappingFlow.simpleMappingSpec
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
-import javax.ws.rs.client.Entity.json
+import jakarta.ws.rs.client.Entity.json
 
 class E04SimpleMappingFlowTest : ConcurrentTestBase() {
 

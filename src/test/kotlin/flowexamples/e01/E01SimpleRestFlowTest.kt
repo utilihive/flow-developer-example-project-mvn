@@ -13,7 +13,7 @@ import flowexamples.e01.E01SimpleRestFlow.simpleRestResourceKey
 import flowexamples.e01.E01SimpleRestFlow.simpleRestSpec
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
-import javax.ws.rs.client.Entity.json
+import jakarta.ws.rs.client.Entity.json
 
 class E01SimpleRestFlowTest : ConcurrentTestBase() {
 

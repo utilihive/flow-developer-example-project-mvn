@@ -7,7 +7,7 @@
         <!-- Project configuration -->
         <encoding>UTF-8</encoding>
         <haltOnCoverageFailure>true</haltOnCoverageFailure>
-        <jdk-version>11</jdk-version>
+        <jdk-version>17</jdk-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- Kotlin -->
@@ -17,10 +17,10 @@
 
         <!-- Dependency versions -->
         <assertj-version>3.24.2</assertj-version>
-        <flow-developer-sdk-version>10.368.0</flow-developer-sdk-version>
-        <javax.ws.rs-api-version>2.1.1</javax.ws.rs-api-version>
+        <flow-developer-sdk-version>11.16.0</flow-developer-sdk-version>
+        <jakarta.ws.rs-api-version>3.1.0</jakarta.ws.rs-api-version>
         <junit5-version>5.10.0</junit5-version>
-        <slf4j-version>1.7.36</slf4j-version>
+        <slf4j-version>2.0.9</slf4j-version>
         <wiremock-version>2.35.1</wiremock-version>
 
         <!-- Plugins -->
@@ -87,10 +87,10 @@
 
         <!-- JAX-RS - REST client -->
         <dependency>
-            <groupId>javax.ws.rs</groupId>
-            <artifactId>javax.ws.rs-api</artifactId>
+            <groupId>jakarta.ws.rs</groupId>
+            <artifactId>jakarta.ws.rs-api</artifactId>
             <scope>runtime</scope>
-            <version>${javax.ws.rs-api-version}</version>
+            <version>${jakarta.ws.rs-api-version}</version>
         </dependency>
 
         <!-- SLF4J-->

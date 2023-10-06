@@ -10,10 +10,10 @@ if errorlevel 1 (
 )
 
 :: sniff out java version
-java --version | findstr /N /C:" 11." > nul
+java --version | findstr /N /C:" 17." > nul
 if errorlevel 1 (
     echo JDK version is incorrect.
-    echo Java 11 is required but found:
+    echo Java 17 is required but found:
     echo.
     java --version
     echo.
@@ -21,7 +21,7 @@ if errorlevel 1 (
     exit
 )
 
-echo JDK version 11 is installed.
+echo JDK version 17 is installed.
 echo.
 
 set settingsFile="%homedrive%%homepath%\.m2\settings.xml"
@@ -51,7 +51,7 @@ echo.
 set projectFile="%~dp0\..\.idea\misc.xml"
 
 :: check local project file
-findstr /R /C:"project-jdk-name=.*11" "%projectFile%" > nul
+findstr /R /C:"project-jdk-name=.*17" "%projectFile%" > nul
 if errorlevel 1 (
     echo Project SDK is incorrect.
     echo Please change SDK in IntelliJ under File ^> Project Structure

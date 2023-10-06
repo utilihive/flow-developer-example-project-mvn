@@ -11,11 +11,11 @@ then
   javaVersion=$(java --version)
 
   # sniff out the java version
-  if [[ $javaVersion == *" 11."* ]]
+  if [[ $javaVersion == *" 17."* ]]
   then
-    echo -e "✅ JDK version 11 is installed.\n"
+    echo -e "✅ JDK version 17 is installed.\n"
   else
-    echo -e "❌ JDK version is incorrect.\nJava 11 is required but found:\n\n$javaVersion"
+    echo -e "❌ JDK version is incorrect.\nJava 17 is required but found:\n\n$javaVersion"
     exit
   fi
 else
@@ -48,7 +48,7 @@ fi
 projectFile="$(dirname "$PWD")/.idea/misc.xml"
 
 # check local project file
-if grep -q "project-jdk-name=.*11" "$projectFile"
+if grep -q "project-jdk-name=.*17" "$projectFile"
 then
   echo "✅ Project SDK is set correctly."
 else
