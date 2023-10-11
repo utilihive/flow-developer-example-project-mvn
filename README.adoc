@@ -19,7 +19,7 @@ For a more detailed walkthrough of the example flows and test features, check ou
 
 == Installation
 
-The Utilihive SDK is a Maven dependency of the example project and requires https://www.oracle.com/java/technologies/downloads/#java17[Java 17].
+The Utilihive SDK is a Maven dependency of the example project and requires https://docs.aws.amazon.com/corretto/latest/corretto-17-ug/downloads-list.html[Java 17].
 You also need to add the software access credentials from your Utilihive license to the Maven settings to access the SDK.
 
 Create or edit the file located at `$HOME/.m2/settings.xml` on your computer and add the following `<server>` element:
