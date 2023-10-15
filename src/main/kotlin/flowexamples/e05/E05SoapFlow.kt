@@ -36,8 +36,7 @@ object E05SoapFlow {
     /*
         Exposing a simple EchoService soap API and integrating that with the public NumberConversion web service.
 
-        We are using bean-mapping and script conversions with our XML compliant JSON format to convert messages between
-        the two service domains.
+        We are using data mapping with our XML compliant JSON format to convert messages between the two service domains.
     */
     val soapFrontendFlowSpec = flowConfig {
         id = "soap"
