@@ -16,8 +16,8 @@
         <kotlin-version>1.9.22</kotlin-version>
 
         <!-- Dependency versions -->
-        <assertj-version>3.25.1</assertj-version>
-        <flow-developer-sdk-version>11.107.0</flow-developer-sdk-version>
+        <assertj-version>3.25.2</assertj-version>
+        <flow-developer-sdk-version>11.108.0</flow-developer-sdk-version>
         <jakarta.ws.rs-api-version>3.1.0</jakarta.ws.rs-api-version>
         <junit5-version>5.10.1</junit5-version>
         <slf4j-version>2.0.11</slf4j-version>
