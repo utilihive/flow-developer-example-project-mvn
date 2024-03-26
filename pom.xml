@@ -17,7 +17,7 @@
 
         <!-- Dependency versions -->
         <assertj-version>3.25.3</assertj-version>
-        <flow-developer-sdk-version>11.149.0</flow-developer-sdk-version>
+        <flow-developer-sdk-version>11.150.0</flow-developer-sdk-version>
         <jakarta.ws.rs-api-version>3.1.0</jakarta.ws.rs-api-version>
         <junit5-version>5.10.2</junit5-version>
         <slf4j-version>2.0.12</slf4j-version>
