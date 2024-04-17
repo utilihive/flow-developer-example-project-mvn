@@ -16,10 +16,10 @@ import flowexamples.e02.E02HttpRequestFlow.BACKEND_AUTHENTICATION_KEY
 import flowexamples.e02.E02HttpRequestFlow.httpRequestOpenApiDefinition
 import flowexamples.e02.E02HttpRequestFlow.httpRequestResourceKey
 import flowexamples.e02.E02HttpRequestFlow.httpRequestSpec
+import jakarta.ws.rs.client.Entity.json
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import java.net.URL
-import jakarta.ws.rs.client.Entity.json
 
 class E02HttpRequestFlowTest : ConcurrentTestBase() {
 
@@ -69,5 +69,4 @@ class E02HttpRequestFlowTest : ConcurrentTestBase() {
             }
         }
     }
-
 }
