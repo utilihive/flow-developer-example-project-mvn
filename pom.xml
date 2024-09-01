@@ -13,11 +13,11 @@
         <!-- Kotlin -->
         <kotlin.code.style>official</kotlin.code.style>
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
-        <kotlin-version>1.9.23</kotlin-version>
+        <kotlin-version>1.9.25</kotlin-version>
 
         <!-- Dependency versions -->
         <assertj-version>3.26.3</assertj-version>
-        <flow-developer-sdk-version>11.255.0</flow-developer-sdk-version>
+        <flow-developer-sdk-version>11.256.0</flow-developer-sdk-version>
         <jakarta.ws.rs-api-version>3.1.0</jakarta.ws.rs-api-version>
         <junit5-version>5.11.0</junit5-version>
         <slf4j-version>2.0.16</slf4j-version>
@@ -25,7 +25,7 @@
 
         <!-- Plugins -->
         <maven-exec-version>3.4.1</maven-exec-version>
-        <maven-surefire-version>3.4.0</maven-surefire-version>
+        <maven-surefire-version>3.5.0</maven-surefire-version>
     </properties>
 
     <groupId>com.greenbird.utilihive.integration.flow-developer</groupId>
