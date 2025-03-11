@@ -1,6 +1,10 @@
 package flowexamples.e03
 
-import com.github.tomakehurst.wiremock.client.WireMock.*
+import com.github.tomakehurst.wiremock.client.WireMock.equalToJson
+import com.github.tomakehurst.wiremock.client.WireMock.post
+import com.github.tomakehurst.wiremock.client.WireMock.postRequestedFor
+import com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo
+import com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo
 import com.greenbird.metercloud.integration.flow.spec.dsl.RestRequestConfig
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.flow.FlowEditor.map
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.resources.Resource
@@ -18,16 +22,18 @@ import flowexamples.e03.E03DistributionFlow.distributionOpenApiDefinition
 import flowexamples.e03.E03DistributionFlow.distributionRestResourceKey
 import flowexamples.e03.E03DistributionFlow.distributionTarget1Spec
 import flowexamples.e03.E03DistributionFlow.distributionTarget2Spec
+import jakarta.ws.rs.client.Entity.json
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import java.net.URL
 import java.time.Duration.ofSeconds
-import jakarta.ws.rs.client.Entity.json
 
 class E03DistributionFlowTest : ConcurrentTestBase() {
     private val TIMEOUT_DURATION = ofSeconds(5)
 
     @Test
+    @Disabled("AB#931579: Should be re-enabled after components-net is built with new flow-service version")
     fun `E03 GIVEN deployed distribution flows WHEN sending a value THEN the message is distributed to the two target flows`(
         ctx: ConcurrentTestContext
     ) {

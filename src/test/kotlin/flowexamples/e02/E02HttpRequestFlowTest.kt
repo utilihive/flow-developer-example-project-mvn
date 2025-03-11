@@ -1,6 +1,9 @@
 package flowexamples.e02
 
-import com.github.tomakehurst.wiremock.client.WireMock.*
+import com.github.tomakehurst.wiremock.client.WireMock.equalToJson
+import com.github.tomakehurst.wiremock.client.WireMock.okJson
+import com.github.tomakehurst.wiremock.client.WireMock.post
+import com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo
 import com.greenbird.metercloud.integration.flow.spec.dsl.RestRequestConfig
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.flow.FlowEditor.map
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.resources.Resource
@@ -18,12 +21,14 @@ import flowexamples.e02.E02HttpRequestFlow.httpRequestResourceKey
 import flowexamples.e02.E02HttpRequestFlow.httpRequestSpec
 import jakarta.ws.rs.client.Entity.json
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import java.net.URL
 
 class E02HttpRequestFlowTest : ConcurrentTestBase() {
 
     @Test
+    @Disabled("AB#931579: Should be re-enabled after components-net is built with new flow-service version")
     fun `E02 GIVEN wiremock backend stub WHEN sending a value THEN an authenticated request is forwarded to the stub flow and echoed back`(
         ctx: ConcurrentTestContext
     ) {
