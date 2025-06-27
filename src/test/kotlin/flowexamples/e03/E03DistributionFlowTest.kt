@@ -31,6 +31,12 @@ import java.time.Duration.ofSeconds
 class E03DistributionFlowTest : ConcurrentTestBase() {
     private val TIMEOUT_DURATION = ofSeconds(5)
 
+    /* TODO
+     * The SDK test server contains the current components-net jar, which is compiled against the currently released version of the flow-spec.
+     * So this test fails when we introduce changes to the RestRequestConfig.
+     *
+     * Disable the test to build new version of flow-service, so we can have a new version of components-net and re-enable the test
+     */
     @Test
     fun `E03 GIVEN deployed distribution flows WHEN sending a value THEN the message is distributed to the two target flows`(
         ctx: ConcurrentTestContext

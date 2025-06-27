@@ -26,6 +26,12 @@ import java.net.URL
 
 class E02HttpRequestFlowTest : ConcurrentTestBase() {
 
+    /* TODO
+     * The SDK test server contains the current components-net jar, which is compiled against the currently released version of the flow-spec.
+     * So this test fails when we introduce changes to the RestRequestConfig.
+     *
+     * Disable the test to build new version of flow-service, so we can have a new version of components-net and re-enable the test
+     */
     @Test
     fun `E02 GIVEN wiremock backend stub WHEN sending a value THEN an authenticated request is forwarded to the stub flow and echoed back`(
         ctx: ConcurrentTestContext

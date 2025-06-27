@@ -4,8 +4,8 @@
 
 == Overview
 
-This example codebase serves as an introduction to the Utilihive Flow Developer SDK while demonstrating common use cases and best practices.
-Developers new to writing integration flows should clone this repository and refer to the official https://pages.github.software.gevernova.com/grid-platform/connect-docs-site/internal/connect/latest/[Utilihive documentation] for additional help.
+This example codebase serves as an introduction to the Connect Flow Developer SDK while demonstrating common use cases and best practices.
+Developers new to writing integration flows should clone this repository and refer to the official https://pages.github.software.gevernova.com/grid-platform/connect-docs-site/public/connect/latest/[Connect documentation] for additional help.
 
 == Example Flows
 
@@ -15,12 +15,12 @@ These flow specifications can be found in the link:src/main/kotlin/flowexamples[
 Each sample flow also has a corresponding unit test in the link:src/test/kotlin/flowexamples[test/kotlin/flowexamples] directory.
 It is important to test flows during the development process, which is why the SDK includes a robust testing framework and local test server to deploy flows on.
 
-For a more detailed walkthrough of the example flows and test features, check out the https://pages.github.software.gevernova.com/grid-platform/connect-docs-site/internal/connect/latest/getting-started/examples/e01/[Getting Started section] of the Utilihive documentation.
+For a more detailed walkthrough of the example flows and test features, check out the https://pages.github.software.gevernova.com/grid-platform/connect-docs-site/internal/connect/latest/getting-started/examples/e01/[Getting Started section] of the Connect documentation.
 
 == Installation
 
 The Connect SDK is a Maven dependency of the example project and requires https://docs.aws.amazon.com/corretto/latest/corretto-17-ug/downloads-list.html[Java 17].
-You also need to add the software access credentials from your Utilihive license to the Maven settings to access the SDK.
+You also need to add the software access credentials from your Connect license to the Maven settings to access the SDK.
 
 Create or edit the file located at `$HOME/.m2/settings.xml` on your computer and add the following `<server>` element:
 
@@ -30,9 +30,9 @@ Create or edit the file located at `$HOME/.m2/settings.xml` on your computer and
 <settings>
   <servers>
     <server>
-      <id>utilihive-sdk</id>
-      <username>YOUR USERNAME</username>
-      <password>YOUR PASSWORD</password>
+      <id>gev-artifactory</id>
+      <username>YOUR-GE-B2B-USERNAME/GE-SSO</username>
+      <password>YOUR-ARTIFACTORY-TOKEN</password>
     </server>
   </servers>
 </settings>
@@ -40,4 +40,4 @@ Create or edit the file located at `$HOME/.m2/settings.xml` on your computer and
 
 The flows and tests are written in Kotlin and need the https://www.jetbrains.com/idea/download/[IntelliJ IDEA] installed to run them.
 
-For more information on setting up your workspace, check out the https://pages.github.software.gevernova.com/grid-platform/connect-docs-site/internal/connect/latest/getting-started/installation/[Installing the Tools section] of the Utilihive documentation.
+For more information on setting up your workspace, check out the https://pages.github.software.gevernova.com/grid-platform/connect-docs-site/public/connect/latest/getting-started/installation/[Installing the Tools section] of the Connect documentation.
