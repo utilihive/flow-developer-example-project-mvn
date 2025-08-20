@@ -13,13 +13,13 @@
         <!-- Kotlin -->
         <kotlin.code.style>official</kotlin.code.style>
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
-        <kotlin-version>2.2.0</kotlin-version>
+        <kotlin-version>2.2.10</kotlin-version>
 
         <!-- Dependency versions -->
-        <assertj-version>3.27.3</assertj-version>
-        <flow-developer-sdk-version>11.527.0</flow-developer-sdk-version>
+        <assertj-version>3.27.4</assertj-version>
+        <flow-developer-sdk-version>11.549.0</flow-developer-sdk-version>
         <jakarta.ws.rs-api-version>3.1.0</jakarta.ws.rs-api-version>
-        <junit5-version>5.13.3</junit5-version>
+        <junit5-version>5.13.4</junit5-version>
         <slf4j-version>2.0.17</slf4j-version>
         <wiremock-version>3.13.1</wiremock-version>
 
@@ -85,11 +85,14 @@
             <version>${flow-developer-sdk-version}</version>
         </dependency>
 
-        <!-- JAX-RS - REST client -->
+        <!--
+            JAX-RS - REST client
+            Must be kept on the compile scope since it is required by the SDK deployer runtime,
+            in addition to being required by the example tests.
+        -->
         <dependency>
             <groupId>jakarta.ws.rs</groupId>
             <artifactId>jakarta.ws.rs-api</artifactId>
-            <scope>runtime</scope>
             <version>${jakarta.ws.rs-api-version}</version>
         </dependency>
 
