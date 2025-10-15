@@ -18,7 +18,7 @@ import org.junit.jupiter.api.Test
 class E05SoapFlowTest : ConcurrentTestBase() {
 
     @Test
-    fun `E06 GIVEN live SOAP backend WHEN sending a number THEN the number converted to words is returned`(
+    fun `E05 GIVEN live SOAP backend WHEN sending a number THEN the number converted to words is returned`(
         ctx: ConcurrentTestContext
     ) {
         val number = "10428"
