@@ -11,8 +11,8 @@ import java.net.URL
 
 object E03DistributionFlow {
     private const val FLOW_ID_API = "distribution-api"
-    private const val FLOW_ID_TARGET_1 = "distribution-target-1-handoff"
-    private const val FLOW_ID_TARGET_2 = "distribution-target-2-handoff"
+    private const val FLOW_ID_TARGET_1 = "distribution-target-1"
+    private const val FLOW_ID_TARGET_2 = "distribution-target-2"
 
     val distributionOpenApiDefinition = fromClasspath("/echo-open-api-v1.json")
 
