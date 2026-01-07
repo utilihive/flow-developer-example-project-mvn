@@ -13,18 +13,18 @@
         <!-- Kotlin -->
         <kotlin.code.style>official</kotlin.code.style>
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
-        <kotlin-version>2.2.21</kotlin-version>
+        <kotlin-version>2.3.0</kotlin-version>
 
         <!-- Dependency versions -->
         <assertj-version>3.27.6</assertj-version>
-        <flow-developer-sdk-version>11.603.0</flow-developer-sdk-version>
+        <flow-developer-sdk-version>11.610.0</flow-developer-sdk-version>
         <jakarta.ws.rs-api-version>3.1.0</jakarta.ws.rs-api-version>
         <junit5-version>6.0.1</junit5-version>
         <slf4j-version>2.0.17</slf4j-version>
         <wiremock-version>3.13.2</wiremock-version>
 
         <!-- Plugins -->
-        <maven-exec-version>3.6.2</maven-exec-version>
+        <maven-exec-version>3.6.3</maven-exec-version>
         <maven-surefire-version>3.5.4</maven-surefire-version>
     </properties>
 
