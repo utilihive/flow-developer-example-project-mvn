@@ -29,7 +29,10 @@ import java.net.URL
 import java.time.Duration.ofSeconds
 
 class E03DistributionFlowTest : ConcurrentTestBase() {
-    private val TIMEOUT_DURATION = ofSeconds(5)
+
+    companion object {
+        private val TIMEOUT_DURATION = ofSeconds(5)
+    }
 
     /* TODO
      * The SDK test server contains the current components-net jar, which is compiled against the currently released version of the flow-spec.
