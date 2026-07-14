@@ -11,9 +11,9 @@ import com.greenbird.utilihive.integration.test.concurrent.core.junit5.Concurren
 import flowexamples.e01.E01SimpleRestFlow.simpleRestOpenApiDefinition
 import flowexamples.e01.E01SimpleRestFlow.simpleRestResourceKey
 import flowexamples.e01.E01SimpleRestFlow.simpleRestSpec
+import jakarta.ws.rs.client.Entity.json
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
-import jakarta.ws.rs.client.Entity.json
 
 class E01SimpleRestFlowTest : ConcurrentTestBase() {
 

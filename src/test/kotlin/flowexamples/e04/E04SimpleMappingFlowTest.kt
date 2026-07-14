@@ -1,19 +1,19 @@
 package flowexamples.e04
 
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.resources.Resource
-import com.greenbird.utilihive.integration.flowdeveloper.sdk.utils.rest.basicAuth
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.FlowTestManager.Companion.flowTest
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.addFlowTestConfig
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.entities.SimpleMessage
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.testing.entities.SimpleValue
+import com.greenbird.utilihive.integration.flowdeveloper.sdk.utils.rest.basicAuth
 import com.greenbird.utilihive.integration.test.concurrent.core.ConcurrentTestContext
 import com.greenbird.utilihive.integration.test.concurrent.core.junit5.ConcurrentTestBase
 import flowexamples.e04.E04SimpleMappingFlow.simpleMappingOpenApiDefinition
 import flowexamples.e04.E04SimpleMappingFlow.simpleMappingResourceKey
 import flowexamples.e04.E04SimpleMappingFlow.simpleMappingSpec
+import jakarta.ws.rs.client.Entity.json
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
-import jakarta.ws.rs.client.Entity.json
 
 class E04SimpleMappingFlowTest : ConcurrentTestBase() {
 

@@ -21,8 +21,8 @@ import flowexamples.e02.E02HttpRequestFlow.httpRequestResourceKey
 import flowexamples.e02.E02HttpRequestFlow.httpRequestSpec
 import jakarta.ws.rs.client.Entity.json
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
-import java.net.URL
 
 class E02HttpRequestFlowTest : ConcurrentTestBase() {
 
@@ -32,6 +32,7 @@ class E02HttpRequestFlowTest : ConcurrentTestBase() {
      *
      * Disable the test to build new version of flow-service, so we can have a new version of components-net and re-enable the test
      */
+    @Disabled
     @Test
     fun `E02 GIVEN wiremock backend stub WHEN sending a value THEN an authenticated request is forwarded to the stub flow and echoed back`(
         ctx: ConcurrentTestContext
@@ -52,7 +53,7 @@ class E02HttpRequestFlowTest : ConcurrentTestBase() {
             val frontendApiResource = Resource(key = httpRequestResourceKey, content = httpRequestOpenApiDefinition)
             // We adjust the rest request target address to point to the backend stub flow
             val frontendFlow = httpRequestSpec.map<RestRequestConfig> { restRequestConfig ->
-                val backendAddress = URL("http://localhost:${wireMockServer.port()}/echo")
+                val backendAddress = "http://localhost:${wireMockServer.port()}/echo"
                 restRequestConfig.copy(address = backendAddress)
             }
 

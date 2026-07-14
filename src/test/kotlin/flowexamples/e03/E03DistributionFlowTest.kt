@@ -24,8 +24,8 @@ import flowexamples.e03.E03DistributionFlow.distributionTarget1Spec
 import flowexamples.e03.E03DistributionFlow.distributionTarget2Spec
 import jakarta.ws.rs.client.Entity.json
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
-import java.net.URL
 import java.time.Duration.ofSeconds
 
 class E03DistributionFlowTest : ConcurrentTestBase() {
@@ -40,6 +40,7 @@ class E03DistributionFlowTest : ConcurrentTestBase() {
      *
      * Disable the test to build new version of flow-service, so we can have a new version of components-net and re-enable the test
      */
+    @Disabled
     @Test
     fun `E03 GIVEN deployed distribution flows WHEN sending a value THEN the message is distributed to the two target flows`(
         ctx: ConcurrentTestContext
@@ -53,10 +54,10 @@ class E03DistributionFlowTest : ConcurrentTestBase() {
             val wireMockBaseUrl = "http://localhost:${wireMockServer.port()}"
 
             val mockedTarget1Flow = distributionTarget1Spec.map<RestRequestConfig> { restRequestConfig ->
-                restRequestConfig.copy(address = URL("$wireMockBaseUrl/target1"))
+                restRequestConfig.copy(address = "$wireMockBaseUrl/target1")
             }
             val mockedTarget2Flow = distributionTarget2Spec.map<RestRequestConfig> { restRequestConfig ->
-                restRequestConfig.copy(address = URL("$wireMockBaseUrl/target2"))
+                restRequestConfig.copy(address = "$wireMockBaseUrl/target2")
             }
 
             val openApiResource = Resource(key = distributionRestResourceKey, content = distributionOpenApiDefinition)

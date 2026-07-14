@@ -7,7 +7,6 @@ import flowexamples.common.FlowData.OWNER_ID
 import flowexamples.common.FlowData.fromClasspath
 import flowexamples.e05.E05RequestTransformationMapping.echoRequestToNumberConversionRequestMapping
 import flowexamples.e05.E05ResponseTransformationMapping.numberConversionResponseToEchoResponseMapping
-import java.net.URL
 
 object E05SoapFlow {
     const val echoNamespace = "http://www.bccs.uib.no/EchoService.wsdl"
@@ -61,7 +60,7 @@ object E05SoapFlow {
 
         soapRequest {
             id = "soap-num-conversion-request"
-            address = URL("https://www.dataaccess.com/webservicesserver/NumberConversion.wso")
+            address = "https://www.dataaccess.com/webservicesserver/NumberConversion.wso"
             wsdlSpecId = soapBackendResourceKey.toResourceIdentifier()
             serviceName = "NumberConversion"
             portName = "NumberConversionSoap"

@@ -6,7 +6,6 @@ import com.greenbird.metercloud.integration.flow.spec.dsl.flowConfig
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.resources.ResourceRevisionKey.Companion.newResourceRevisionKey
 import flowexamples.common.FlowData.OWNER_ID
 import flowexamples.common.FlowData.fromClasspath
-import java.net.URL
 
 object E02HttpRequestFlow {
     const val BACKEND_AUTHENTICATION_KEY = "backendAuth"
@@ -36,7 +35,7 @@ object E02HttpRequestFlow {
 
             // Actual backend addresses are typically specified during the deployment process
             // for each deployment environment. So here we just add a placeholder value.
-            address = URL("https://OVERRIDE_ME/echo")
+            address = "https://OVERRIDE_ME/echo"
 
             // In live deployment the backend credentials will be looked up externally.
             // For the tests they are defined on the test config and deployed to the test server by the sdk.

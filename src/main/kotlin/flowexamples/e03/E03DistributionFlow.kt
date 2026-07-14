@@ -7,7 +7,6 @@ import com.greenbird.metercloud.integration.flow.spec.dsl.flowConfig
 import com.greenbird.utilihive.integration.flowdeveloper.sdk.resources.ResourceRevisionKey.Companion.newResourceRevisionKey
 import flowexamples.common.FlowData.OWNER_ID
 import flowexamples.common.FlowData.fromClasspath
-import java.net.URL
 
 object E03DistributionFlow {
     private const val FLOW_ID_API = "distribution-api"
@@ -62,7 +61,7 @@ object E03DistributionFlow {
         restRequest {
             id = "request-handoff-1"
             defaultMethod = POST
-            address = URL("https://OVERRIDE_ME/target1")
+            address = "https://OVERRIDE_ME/target1"
         }
 
     }
@@ -78,7 +77,7 @@ object E03DistributionFlow {
         restRequest {
             id = "request-handoff-2"
             defaultMethod = POST
-            address = URL("https://OVERRIDE_ME/target2")
+            address = "https://OVERRIDE_ME/target2"
         }
 
     }
