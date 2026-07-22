@@ -21,7 +21,6 @@ import flowexamples.e02.E02HttpRequestFlow.httpRequestResourceKey
 import flowexamples.e02.E02HttpRequestFlow.httpRequestSpec
 import jakarta.ws.rs.client.Entity.json
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 class E02HttpRequestFlowTest : ConcurrentTestBase() {
@@ -32,7 +31,6 @@ class E02HttpRequestFlowTest : ConcurrentTestBase() {
      *
      * Disable the test to build new version of flow-service, so we can have a new version of components-net and re-enable the test
      */
-    @Disabled
     @Test
     fun `E02 GIVEN wiremock backend stub WHEN sending a value THEN an authenticated request is forwarded to the stub flow and echoed back`(
         ctx: ConcurrentTestContext

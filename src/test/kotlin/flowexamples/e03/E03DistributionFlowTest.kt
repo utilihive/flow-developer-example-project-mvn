@@ -24,7 +24,6 @@ import flowexamples.e03.E03DistributionFlow.distributionTarget1Spec
 import flowexamples.e03.E03DistributionFlow.distributionTarget2Spec
 import jakarta.ws.rs.client.Entity.json
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import java.time.Duration.ofSeconds
 
@@ -40,7 +39,6 @@ class E03DistributionFlowTest : ConcurrentTestBase() {
      *
      * Disable the test to build new version of flow-service, so we can have a new version of components-net and re-enable the test
      */
-    @Disabled
     @Test
     fun `E03 GIVEN deployed distribution flows WHEN sending a value THEN the message is distributed to the two target flows`(
         ctx: ConcurrentTestContext
