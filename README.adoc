@@ -10,9 +10,9 @@ Developers new to writing integration flows should clone this repository and ref
 == Example Flows
 
 The example project includes a series of working sample flows that demonstrate features like creating REST endpoints, handing payloads off to other flows, and mapping JSON compliant data.
-These flow specifications can be found in the link:src/main/kotlin/flowexamples[main/kotlin/flowexamples] directory and are numbered `e01`, `e02`, etc.
+These flow specifications can be found in the link:../src/main/kotlin/flowexamples[main/kotlin/flowexamples] directory and are numbered `e01`, `e02`, etc.
 
-Each sample flow also has a corresponding unit test in the link:src/test/kotlin/flowexamples[test/kotlin/flowexamples] directory.
+Each sample flow also has a corresponding unit test in the link:../src/test/kotlin/flowexamples[test/kotlin/flowexamples] directory.
 It is important to test flows during the development process, which is why the SDK includes a robust testing framework and local test server to deploy flows on.
 
 For a more detailed walkthrough of the example flows and test features, check out the https://pages.github.software.gevernova.com/grid-platform/connect-docs-site/internal/connect/latest/getting-started/examples/e01/[Getting Started section] of the Connect documentation.
